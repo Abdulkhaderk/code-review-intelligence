@@ -7,9 +7,13 @@ from datetime import datetime
 
 
 
-load_dotenv
+from pathlib import Path
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
+token = os.getenv("GITHUB_TOKEN")
+print(f"Token loaded: {token[:10]}...")  # prints first 10 characters only
 token=os.getenv("GITHUB_TOKEN")
-g = Github(token)
+from github import Auth
+g = Github(auth=Auth.Token(token))
 print(g.rate_limiting)
 print(g.rate_limiting_resettime)
 
@@ -22,12 +26,11 @@ REPOS = [
 ]
 #main scraping function
 def check_rate_limit():
-    rate_limit = g.get_rate_limit().core
-    remaining = rate_limit.remaining
+    remaining, limit = g.rate_limiting
     
     if remaining < 10:
-        reset_time = rate_limit.reset
-        wait_seconds = (reset_time - datetime.utcnow()).seconds + 60
+        reset_time = g.rate_limiting_resettime
+        wait_seconds = reset_time - int(time.time()) + 60
         print(f"Rate limit low ({remaining} left). Waiting {wait_seconds}s...")
         time.sleep(wait_seconds)
 
