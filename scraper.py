@@ -22,7 +22,10 @@ print(g.rate_limiting_resettime)
 REPOS = [
     "psf/requests",
     "pallets/flask",
-    "tiangolo/fastapi"
+    "tiangolo/fastapi",
+    "scrapy/scrapy",
+    "django/django",
+    "pandas-dev/pandas"
 ]
 #main scraping function
 def check_rate_limit():
@@ -34,7 +37,7 @@ def check_rate_limit():
         print(f"Rate limit low ({remaining} left). Waiting {wait_seconds}s...")
         time.sleep(wait_seconds)
 
-def scrape_prs(repo_name, max_prs=50):
+def scrape_prs(repo_name, max_prs=100):
     print(f"Scraping {repo_name}...")
     repo = g.get_repo(repo_name)
     pulls = repo.get_pulls(state="closed", sort="updated", direction="desc")
@@ -44,6 +47,7 @@ def scrape_prs(repo_name, max_prs=50):
 
     for pr in pulls:
         check_rate_limit()
+
         if count >= max_prs:
             break
 
@@ -51,19 +55,30 @@ def scrape_prs(repo_name, max_prs=50):
             continue
 
         try:
-            diff = pr.get_files()
-            reviews = pr.get_reviews()
             comments = pr.get_review_comments()
+            issue_comments = pr.get_issue_comments()
 
             for comment in comments:
-                rows.append({
-                    "repo": repo_name,
-                    "pr_number": pr.number,
-                    "author": pr.user.login,
-                    "diff_hunk": comment.diff_hunk,
-                    "review_comment": comment.body,
-                    "label": ""
-                })
+                if len(comment.body) > 20:
+                    rows.append({
+                        "repo": repo_name,
+                        "pr_number": pr.number,
+                        "author": pr.user.login,
+                        "diff_hunk": comment.diff_hunk,
+                        "review_comment": comment.body,
+                        "label": ""
+                    })
+
+            for comment in issue_comments:
+                if len(comment.body) > 20:
+                    rows.append({
+                        "repo": repo_name,
+                        "pr_number": pr.number,
+                        "author": pr.user.login,
+                        "diff_hunk": "",
+                        "review_comment": comment.body,
+                        "label": ""
+                    })
 
             count += 1
             time.sleep(1)
@@ -73,8 +88,6 @@ def scrape_prs(repo_name, max_prs=50):
             continue
 
     return rows
-
-
 
 #save to csv
 
@@ -101,7 +114,7 @@ if __name__ == "__main__":
     all_rows = []
 
     for repo in REPOS:
-        rows = scrape_prs(repo, max_prs=20)
+        rows = scrape_prs(repo, max_prs=100)
         all_rows.extend(rows)
         print(f"Got {len(rows)} comments from {repo}")
         time.sleep(2)
