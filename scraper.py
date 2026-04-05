@@ -121,3 +121,4 @@ if __name__ == "__main__":
 
     save_to_csv(all_rows)
     print(f"Total: {len(all_rows)} rows collected")
+    
