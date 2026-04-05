@@ -10,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 token = os.getenv("GITHUB_TOKEN")
-print(f"Token loaded: {token[:10]}...")  # prints first 10 characters only
+print(f"token loaded successfully")  # prints first 10 characters only
 token=os.getenv("GITHUB_TOKEN")
 from github import Auth
 g = Github(auth=Auth.Token(token))
