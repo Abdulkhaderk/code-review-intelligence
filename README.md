@@ -121,7 +121,7 @@ code-review-intelligence/
 
 ---
 
-## How to run locally
+## How to run locally :
 
 **Step 1 — Clone the repo**
 ```bash
