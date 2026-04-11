@@ -1,7 +1,7 @@
 repo,pr_number,author,diff_hunk,review_comment,label
 tiangolo/fastapi,15150,dependabot[bot],,"## 📝 Docs preview
 
-Last commit f3b69173c48e9e22d20d2e0e80df8f827923a001 at: https://bcaaf55c.fastapitiangolo.pages.dev",
+Last commit f3b69173c48e9e22d20d2e0e80df8f827923a001 at: https://bcaaf55c.fastapitiangolo.pages.dev",none
 pandas-dev/pandas,61828,eicchen,"@@ -8491,7 +8491,10 @@ def to_series(right):
              # pass dtype to avoid doing inference, which would break consistency
              #  with Index/Series ops
@@ -9,7 +9,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -8491,7 +8491,10 @@ def to_series(right):
 -            if getattr(right, ""dtype"", None) == object:
 +            if (
 +                getattr(right, ""dtype"", None) == ""object""
-+                or getattr(right, ""dtype"", None) == object","Yeah idk what I was thinking back then tbh, I'll go ahead and revert this",
++                or getattr(right, ""dtype"", None) == object","Yeah idk what I was thinking back then tbh, I'll go ahead and revert this",none
 django/django,20308,VIZZARD-X,"@@ -329,3 +330,27 @@ def test_timedelta(self):
              json.dumps({""duration"": duration}, cls=DjangoJSONEncoder),
              '{""duration"": ""P0DT00H00M00S""}',
@@ -35,7 +35,7 @@ django/django,20308,VIZZARD-X,"@@ -329,3 +330,27 @@ def test_timedelta(self):
 +
 +register_tests(","I had originally placed it here because I was aiming to test the determinism on just one serializer to keep things minimal, but I wrote the test itself generically.
 
-Would you prefer I move this generic test over to ``tests/serializers/test_natural.py`` and register it there, or should I move it into ``tests.py`` so it properly registers across all serialization formats?",
+Would you prefer I move this generic test over to ``tests/serializers/test_natural.py`` and register it there, or should I move it into ``tests.py`` so it properly registers across all serialization formats?",none
 django/django,21035,smithdc1,"@@ -7296,17 +7296,28 @@ def test_use_fieldset_fields_render(self):
              ""Difficulty:"",
              ""Materials:"",
@@ -47,14 +47,14 @@ django/django,21035,smithdc1,"@@ -7296,17 +7296,28 @@ def test_use_fieldset_fiel
          fieldsets = self.selenium.find_elements(
              By.CSS_SELECTOR, ""fieldset.aligned fieldset""
          )
-+        self.assertEqual(len(fieldsets), 3)",The test passed even though categories is no longer a fieldset. That's because `fieldsets` reduced in length to 3 and there was no assertion to make sure all of the items in `expected_legend_tags_text` were used. ,
++        self.assertEqual(len(fieldsets), 3)",The test passed even though categories is no longer a fieldset. That's because `fieldsets` reduced in length to 3 and there was no assertion to make sure all of the items in `expected_legend_tags_text` were used.,bug
 pandas-dev/pandas,61828,eicchen,,"It looks like the change might have inadvertently changed some behavior that I don't know if I should keep or not.
 
 It reverts the error message that is expected in the test_period_add_timestamp_raises test back to what it was pre-resolution-inference according to your comment from a year ago.
 
 And it makes the test_add_strings in test_string.py return a success, rather than the xfail that it was supposed to be. test_add_frame unfortunately still fails though so I don't know if I should purposefully break it to keep the actions in line with each other. I read the linked issue but don't think there was a consensus (#28527 )
 
-",
+",bug
 tiangolo/fastapi,15165,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -78,7 +78,7 @@ tiangolo/fastapi,15165,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (b707bb8) during the generation of this report, so 6e5e942 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 django/django,20308,VIZZARD-X,,"#### Uncovered lines in changed files
 
 ```
@@ -92,12 +92,12 @@ Coverage: 100%
 -------------
 
 ```
-**Note:** Missing lines are warnings only. Some database-specific lines may not be measured. [More information](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests)",
+**Note:** Missing lines are warnings only. Some database-specific lines may not be measured. [More information](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests)",none
 scrapy/scrapy,7283,jhamze7,"@@ -48,6 +50,49 @@
  logger = logging.getLogger(__name__)
  
  
-+def _is_dns_error(exc: BaseException) -> bool:",But how is this related to this PR?,
++def _is_dns_error(exc: BaseException) -> bool:",But how is this related to this PR?,none
 psf/requests,6667,agubelu,,"I am being to see the error `Segmentation fault` after upgrading the `requests` to `v2.32.0`. I tried version `v2.31.0`, `v2.32.0`, `v2.32.1`, `v2.32.2` and `v2.32.3`. and seeing  same error with all versions after `v2.32.0`. but no problem with `v2.31.0`
 I am not sure if this problem is related to SSLContext  thread safe, but my code is indeed running under `concurrent.futures`.
 And after adding `faulthandler.enable()` into my code, I saw the trace is below, looks like it is related to ssl context
@@ -112,7 +112,7 @@ File ""/opt/vpnaas/lib64/python3.11/site-packages/urllib3/util/ssl_.py"", line 4
   File ""/opt/vpnaas/lib64/python3.11/site-packages/requests/sessions.py"", line 589 in request
   File ""/opt/vpnaas/lib64/python3.11/site-packages/requests/api.py"", line 59 in request
   File ""/opt/vpnaas/lib64/python3.11/site-packages/requests/api.py"", line 73 in get
-```",
+```",bug
 tiangolo/fastapi,15170,tiangolo,,"## 📝 Docs preview
 
 Last commit 32c3f88fcc6ff0352ed094b492b312dbfdf82126 at: https://c88f7dcb.fastapitiangolo.pages.dev
@@ -217,7 +217,7 @@ Last commit 32c3f88fcc6ff0352ed094b492b312dbfdf82126 at: https://c88f7dcb.fastap
 * https://c88f7dcb.fastapitiangolo.pages.dev/ko/tutorial/static-files/ - ([before](https://fastapi.tiangolo.com/ko/tutorial/static-files/)) - ([English](https://fastapi.tiangolo.com/tutorial/static-files/))
 * https://c88f7dcb.fastapitiangolo.pages.dev/ko/tutorial/testing/ - ([before](https://fastapi.tiangolo.com/ko/tutorial/testing/)) - ([English](https://fastapi.tiangolo.com/tutorial/testing/))
 * https://c88f7dcb.fastapitiangolo.pages.dev/ko/virtual-environments/ - ([before](https://fastapi.tiangolo.com/ko/virtual-environments/)) - ([English](https://fastapi.tiangolo.com/virtual-environments/))
-",
+",none
 django/django,20308,VIZZARD-X,"@@ -329,3 +330,27 @@ def test_timedelta(self):
              json.dumps({""duration"": duration}, cls=DjangoJSONEncoder),
              '{""duration"": ""P0DT00H00M00S""}',
@@ -243,7 +243,7 @@ django/django,20308,VIZZARD-X,"@@ -329,3 +330,27 @@ def test_timedelta(self):
 +
 +register_tests(","Gotcha -- your changes touch both python and xml formats, so we do need coverage for both serializers.
 
-Looking again, the original flaky test case quoted in the issue is placed under `fixtures`, not `serializers`, so placing the test there might help us avoid a lot of these questions.",
+Looking again, the original flaky test case quoted in the issue is placed under `fixtures`, not `serializers`, so placing the test there might help us avoid a lot of these questions.",style
 pandas-dev/pandas,61828,eicchen,"@@ -899,6 +906,13 @@ def _evaluate_op_method(self, other, op, arrow_funcs) -> Self:
          ):
              if op in [operator.add, roperator.radd]:
@@ -253,7 +253,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -899,6 +906,13 @@ def _evaluate_op_method(se
 +                    or pa.types.is_large_string(other.type)
 +                    or pa.types.is_binary(other.type)
 +                    or isna(other).all()
-+                ):",example?  im skeptical,
++                ):",example?  im skeptical,none
 scrapy/scrapy,7386,albertedwardson,"@@ -17,9 +17,8 @@ async def download_request(self, request: Request) -> Response:
          uri = parse_data_uri(request.url)
          respcls = responsetypes.from_mimetype(uri.media_type)
@@ -263,8 +263,8 @@ scrapy/scrapy,7386,albertedwardson,"@@ -17,9 +17,8 @@ async def download_request
              charset = uri.media_type_parameters.get(""charset"")
 -            resp_kwargs[""encoding""] = charset
 +            return respcls(url=request.url, body=uri.data, encoding=charset)
- ","But we are repeating parameters unnecessarily, so you need to trust that you won’t change a parameter in one of the returns and forget about updating the other one. Not a big deal, specially in this scenario. But at the same time, if there is no strong reason to change existing code, it may be best to leave it as it was.",
-django/django,20282,LilyFirefly,,"I have run the tests here locally on PostgreSQL 18 and they pass, so I think this part is ready.",
+ ","But we are repeating parameters unnecessarily, so you need to trust that you won’t change a parameter in one of the returns and forget about updating the other one. Not a big deal, specially in this scenario. But at the same time, if there is no strong reason to change existing code, it may be best to leave it as it was.",complexity
+django/django,20282,LilyFirefly,,"I have run the tests here locally on PostgreSQL 18 and they pass, so I think this part is ready.",none
 scrapy/scrapy,7118,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7118?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 91.13%. Comparing base ([`9cce6c3`](https://app.codecov.io/gh/scrapy/scrapy/commit/9cce6c30db7f7050e99a6668eb0406aed9b730a1?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`a817456`](https://app.codecov.io/gh/scrapy/scrapy/commit/a817456e48b7757fdcc011299c682c533a2afa4c?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -290,7 +290,7 @@ scrapy/scrapy,7118,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 + Partials      282      281    -1     
 ```
 [see 1 file with indirect coverage changes](https://app.codecov.io/gh/scrapy/scrapy/pull/7118/indirect-changes?src=pr&el=tree-more&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)
-</details>",
+</details>",none
 tiangolo/fastapi,14982,tiangolo,"@@ -0,0 +1,640 @@
 +---
 +name: fastapi
@@ -636,7 +636,7 @@ tiangolo/fastapi,14982,tiangolo,"@@ -0,0 +1,640 @@
 +* They can't be declared in Pydantic validation and require additional logic
 +* The logic depends on external resources or could block in any other way","```suggestion
 * The logic depends on external resources or could be blocked in any other way
-```",
+```",complexity
 django/django,19713,Antoliny0919,"@@ -418,22 +418,23 @@ subclass::
      * ``classes``
          A list or tuple containing extra CSS classes to apply to the fieldset.
@@ -659,11 +659,11 @@ django/django,19713,Antoliny0919,"@@ -418,22 +418,23 @@ subclass::
          collapsed, using an expandable widget with a toggle for switching
          their visibility.
  
-+        .. versionchanged:: 6.1",May as well reiterate this in the 6.1 backwards incompatible section.,
-pandas-dev/pandas,64148,gautamvarmadatla,,"hi @jbrockmendel , pushed the fixes and ran benchmark. Seeing perf improvement across benchmark",
++        .. versionchanged:: 6.1",May as well reiterate this in the 6.1 backwards incompatible section.,style
+pandas-dev/pandas,64148,gautamvarmadatla,,"hi @jbrockmendel , pushed the fixes and ran benchmark. Seeing perf improvement across benchmark",bug
 pallets/flask,5742,Badhreesh,,"> I wonder if there's a way to demonstrate the issue using the existing url, rather than changing to the `path` type, which doesn't really make sense in this context. Either using something like `<img>` that doesn't require a closing tag, or taking the argument from `request.args`?
 
-I agree. Since the emphasis on escaping is to prevent the execution of scripts, I went ahead with using `request.args` to ensure correct demonstration of the issue.",
+I agree. Since the emphasis on escaping is to prevent the execution of scripts, I went ahead with using `request.args` to ensure correct demonstration of the issue.",none
 psf/requests,6802,graingert,"@@ -1,7 +1,7 @@
  -e .[socks]
  pytest>=2.8.0,<9
@@ -671,7 +671,7 @@ psf/requests,6802,graingert,"@@ -1,7 +1,7 @@
 -pytest-httpbin==2.0.0
 +pytest-httpbin==2.1.0rc1","```suggestion
 pytest-httpbin==2.1.0
-```",
+```",none
 django/django,20300,charettes,"@@ -114,36 +114,34 @@ def get_distance(self, f, value, lookup_type):
              ""Distance operations not available on this spatial backend.""
          )
@@ -710,7 +710,7 @@ django/django,20300,charettes,"@@ -114,36 +114,34 @@ def get_distance(self, f, v
 +                params = (*params, f.srid)
 +            return sql, params
 +        elif must_transform_value(value, f):
-+            transform_func = self.spatial_function_name(""Transform"")",We can't assign at the method scope as some backends don't support SRID transforms (e.g. MySQL),
++            transform_func = self.spatial_function_name(""Transform"")",We can't assign at the method scope as some backends don't support SRID transforms (e.g. MySQL),bug
 django/django,20587,charettes,"@@ -417,10 +417,6 @@ class BaseDatabaseFeatures:
      # Does the Round() database function round to even?
      rounds_to_even = False
@@ -718,7 +718,7 @@ django/django,20587,charettes,"@@ -417,10 +417,6 @@ class BaseDatabaseFeatures:
 -    # Should dollar signs be prohibited in column aliases to prevent SQL
 -    # injection?
 -    prohibits_dollar_signs_in_column_aliases = False
--",This is no longer needed now that identifiers are quoted.,
+-",This is no longer needed now that identifiers are quoted.,complexity
 tiangolo/fastapi,15165,tiangolo,,"## 📝 Docs preview
 
 Last commit 381f15e89dfe21dcd732805f997e172332613daf at: https://f77e3435.fastapitiangolo.pages.dev
@@ -823,7 +823,7 @@ Last commit 381f15e89dfe21dcd732805f997e172332613daf at: https://f77e3435.fastap
 * https://f77e3435.fastapitiangolo.pages.dev/fr/tutorial/static-files/ - ([before](https://fastapi.tiangolo.com/fr/tutorial/static-files/)) - ([English](https://fastapi.tiangolo.com/tutorial/static-files/))
 * https://f77e3435.fastapitiangolo.pages.dev/fr/tutorial/testing/ - ([before](https://fastapi.tiangolo.com/fr/tutorial/testing/)) - ([English](https://fastapi.tiangolo.com/tutorial/testing/))
 * https://f77e3435.fastapitiangolo.pages.dev/fr/virtual-environments/ - ([before](https://fastapi.tiangolo.com/fr/virtual-environments/)) - ([English](https://fastapi.tiangolo.com/virtual-environments/))
-",
+",none
 django/django,20685,prafulgulani,"@@ -75,7 +75,7 @@ a secure connection is used.
  ``send_mail()``
  ===============
@@ -833,7 +833,7 @@ django/django,20685,prafulgulani,"@@ -75,7 +75,7 @@ a secure connection is used.
 
 ```suggestion
 .. function:: send_mail(subject, message, from_email, recipient_list, *, fail_silently=False, auth_user=None, auth_password=None, connection=None, html_message=None)
-```",
+```",style
 django/django,21029,jacobtylerwalls,"@@ -108,22 +108,25 @@ def test_closes_connections(self):
  
  @unittest.skipUnless(connection.vendor == ""sqlite"", ""SQLite specific test."")
@@ -851,13 +851,13 @@ django/django,21029,jacobtylerwalls,"@@ -108,22 +108,25 @@ def test_closes_conne
 +        # Don't lock the default database under parallel test execution.
 +        conn = self.server_thread.connections_override[""other""]","Just to make sure I understand the reasoning here.
 
-Is it that `other` is used is less tests and thus it's less likely to cause contention issues? In the sense that it could still happen but is less likely?",
+Is it that `other` is used is less tests and thus it's less likely to cause contention issues? In the sense that it could still happen but is less likely?",none
 tiangolo/fastapi,15091,svlandeg,"@@ -22,7 +22,7 @@
  from fastapi.exceptions import PydanticV1NotSupportedError
  from fastapi.types import IncEx
  from pydantic import BaseModel
 -from pydantic.color import Color
-+from pydantic.color import Color  # ty: ignore[deprecated]",cf https://github.com/fastapi/fastapi/pull/15101 🙂 ,
++from pydantic.color import Color  # ty: ignore[deprecated]",cf https://github.com/fastapi/fastapi/pull/15101 🙂,none
 pandas-dev/pandas,61828,eicchen,"@@ -899,6 +906,13 @@ def _evaluate_op_method(self, other, op, arrow_funcs) -> Self:
          ):
              if op in [operator.add, roperator.radd]:
@@ -867,7 +867,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -899,6 +906,13 @@ def _evaluate_op_method(se
 +                    or pa.types.is_large_string(other.type)
 +                    or pa.types.is_binary(other.type)
 +                    or isna(other).all()
-+                ):",why is this necessary?,
++                ):",why is this necessary?,none
 django/django,20828,blighj,"@@ -11,6 +11,12 @@
  from django.core.files.base import ContentFile
  from django.core.files.storage import FileSystemStorage, storages
@@ -877,12 +877,12 @@ django/django,20828,blighj,"@@ -11,6 +11,12 @@
 +comment_re = _lazy_re_compile(r""\/\*[^*]*\*+([^/*][^*]*\*+)*\/"", re.DOTALL)
 +line_comment_re = _lazy_re_compile(
 +    r""\/\*[^*]*\*+([^/*][^*]*\*+)*\/|\/\/[^\n]*"", re.DOTALL
-+)",I can only imagine it feels infinite the amount of work in the queue. You all amaze me with your knowledge.,
++)",I can only imagine it feels infinite the amount of work in the queue. You all amaze me with your knowledge.,none
 psf/requests,6802,graingert,"@@ -31,6 +31,7 @@ jobs:
        with:
          python-version: ${{ matrix.python-version }}
          cache: 'pip'
-+        allow-prereleases: true",Do we still need this or can it be removed now that `pytest-httpbin` is fully released?,
++        allow-prereleases: true",Do we still need this or can it be removed now that `pytest-httpbin` is fully released?,none
 pandas-dev/pandas,61828,eicchen,"@@ -273,17 +270,26 @@ def test_add_strings(any_string_dtype, request):
      tm.assert_frame_equal(result, expected)
  
@@ -905,7 +905,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -273,17 +270,26 @@ def test_add_strings(any_
 +    # Don't want to just skip in case underlying python behavior changes
 +    if HAS_PYARROW or getattr(dtype, ""storage"", None) != ""python"":","HAS_PYARROW is weird here. id expect just `getattr(dtype, ""storage"", None) == ""pyarrow""`?
 
-",
+",complexity
 django/django,19713,Antoliny0919,"@@ -1203,6 +1203,41 @@ def test_calendar_show_date_from_input(self):
                      # The right month and year are displayed.
                      self.wait_for_text(""#calendarin0 caption"", expected_caption)
@@ -922,7 +922,7 @@ django/django,19713,Antoliny0919,"@@ -1203,6 +1203,41 @@ def test_calendar_show_
 +
 +        datetime = self.selenium.find_element(By.CSS_SELECTOR, ""p.datetime"")
 +        warnings = self.selenium.find_elements(
-+            By.CSS_SELECTOR, ""div.form-row.field-birthdate div.help.timezonewarning""",I think it can be simplified quite a bit!,
++            By.CSS_SELECTOR, ""div.form-row.field-birthdate div.help.timezonewarning""",I think it can be simplified quite a bit!,complexity
 django/django,20282,LilyFirefly,,"### 📊 Coverage Report for Changed Files
 
 ```
@@ -944,13 +944,13 @@ Coverage: 77%
 
 **Note:** Missing lines are warnings only. Some lines may not be covered by SQLite tests as they are database-specific.
 
-For more information about code coverage on pull requests, see the [contributing documentation](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests).",
-pandas-dev/pandas,64986,jbrockmendel,,Updated to remove the `__iter__` requirement,
+For more information about code coverage on pull requests, see the [contributing documentation](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests).",none
+pandas-dev/pandas,64986,jbrockmendel,,Updated to remove the `__iter__` requirement,none
 scrapy/scrapy,7239,wRAR,"@@ -124,6 +124,17 @@ def to_unicode_dict(self) -> CaseInsensitiveDict:
              for key, value in self.items()
          )
  
-+    def to_tuple_list(self) -> list[tuple[str, str]]:","Nice. Even if documentation is out of scope here, it may be worth adding this to the changelog already, so that we do not forget to mention it when building the final changelog entry.",
++    def to_tuple_list(self) -> list[tuple[str, str]]:","Nice. Even if documentation is out of scope here, it may be worth adding this to the changelog already, so that we do not forget to mention it when building the final changelog entry.",style
 django/django,20027,Eddy-123,"@@ -607,3 +607,19 @@ def setUp(self):
          )
          self.enterContext(feature_patch_1)
@@ -962,7 +962,7 @@ django/django,20027,Eddy-123,"@@ -607,3 +607,19 @@ def setUp(self):
 +    def setUpTestData(cls):
 +        cls.tenant = Tenant.objects.create()
 +        cls.user = User.objects.create(
-+            tenant=cls.tenant, id=1, email=""exclude@example.com""","The first iteration on the prior attempt didn't support composite pk's, see https://github.com/django/django/pull/19691#discussion_r2248333697.  So I think it's worth testing as part of this contribution.",
++            tenant=cls.tenant, id=1, email=""exclude@example.com""","The first iteration on the prior attempt didn't support composite pk's, see https://github.com/django/django/pull/19691#discussion_r2248333697.  So I think it's worth testing as part of this contribution.",bug
 scrapy/scrapy,7366,wRAR,"@@ -820,21 +829,127 @@ def start(
      def _start_asyncio(
          self, stop_after_crawl: bool, install_signal_handlers: bool
@@ -1066,15 +1066,15 @@ scrapy/scrapy,7366,wRAR,"@@ -820,21 +829,127 @@ def start(
 +                        ""exception"": task.exception(),
 +                        ""task"": task,
 +                    }
-+                )","The exception-handler message says “unhandled exception during asyncio.run() shutdown”, but this shutdown path is AsyncCrawlerProcess-managed and explicitly not using asyncio.run(). Consider adjusting the message to avoid confusion when it is surfaced via the loop exception handler.",
++                )","The exception-handler message says “unhandled exception during asyncio.run() shutdown”, but this shutdown path is AsyncCrawlerProcess-managed and explicitly not using asyncio.run(). Consider adjusting the message to avoid confusion when it is surfaced via the loop exception handler.",bug
 pandas-dev/pandas,64943,DeeptimaanB,,"Hello there! While investigating Doc Build and Upload / Doc Build and Upload (pull_request) CI run. The CI gives this warning - 
 
 WARNING: failed to reach any of the inventories with the following issues:
 intersphinx inventory 'https://docs.scipy.org/doc/scipy/objects.inv' not fetchable due to <class 'requests.exceptions.ConnectTimeout'>: HTTPSConnectionPool(host='docs.scipy.org', port=443): Max retries exceeded with url: /doc/scipy/objects.inv (Caused by
 ConnectTimeoutError(<HTTPSConnection(host='docs.scipy.org', port=443) at 0x7f2952a1a090>, 'Connection to docs.scipy.org timed out. (connect timeout=None)'))
 
-which I believe is a CI run network issue and is not related to my pull request. Can a maintainer look into this? I made an empty commit hoping it will resolve but it didn't. Thank you for your time and patience!",
-pandas-dev/pandas,64956,jbrockmendel,,"wow Claude Code beats, gj",
+which I believe is a CI run network issue and is not related to my pull request. Can a maintainer look into this? I made an empty commit hoping it will resolve but it didn't. Thank you for your time and patience!",bug
+pandas-dev/pandas,64956,jbrockmendel,,"wow Claude Code beats, gj",none
 tiangolo/fastapi,15159,tiangolo,,"## 📝 Docs preview
 
 Last commit 8366eaee417e47564edf7cacb69739a69d5276ce at: https://e7d6f4a8.fastapitiangolo.pages.dev
@@ -1111,8 +1111,8 @@ Last commit 8366eaee417e47564edf7cacb69739a69d5276ce at: https://e7d6f4a8.fastap
 * https://e7d6f4a8.fastapitiangolo.pages.dev/pt/tutorial/response-model/ - ([before](https://fastapi.tiangolo.com/pt/tutorial/response-model/)) - ([English](https://fastapi.tiangolo.com/tutorial/response-model/))
 * https://e7d6f4a8.fastapitiangolo.pages.dev/pt/tutorial/response-status-code/ - ([before](https://fastapi.tiangolo.com/pt/tutorial/response-status-code/)) - ([English](https://fastapi.tiangolo.com/tutorial/response-status-code/))
 * https://e7d6f4a8.fastapitiangolo.pages.dev/pt/virtual-environments/ - ([before](https://fastapi.tiangolo.com/pt/virtual-environments/)) - ([English](https://fastapi.tiangolo.com/virtual-environments/))
-",
-tiangolo/fastapi,13328,ceb10n,,Thanks for the update! @ceb10n :raised_hands: :sparkles: ,
+",none
+tiangolo/fastapi,13328,ceb10n,,Thanks for the update! @ceb10n :raised_hands: :sparkles:,none
 tiangolo/fastapi,14992,YuriiMotov,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -1135,7 +1135,7 @@ tiangolo/fastapi,14992,YuriiMotov,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__
   </picture>
 </a>
 
-",
+",none
 tiangolo/fastapi,15153,tiangolo,,"## 📝 Docs preview
 
 Last commit 9898cfecf74fe259ac09885263457ce1dcd8f6ad at: https://1a13cf5f.fastapitiangolo.pages.dev
@@ -1148,12 +1148,12 @@ Last commit 9898cfecf74fe259ac09885263457ce1dcd8f6ad at: https://1a13cf5f.fastap
 * https://1a13cf5f.fastapitiangolo.pages.dev/de/editor-support/ - ([before](https://fastapi.tiangolo.com/de/editor-support/)) - ([English](https://fastapi.tiangolo.com/editor-support/))
 * https://1a13cf5f.fastapitiangolo.pages.dev/de/tutorial/server-sent-events/ - ([before](https://fastapi.tiangolo.com/de/tutorial/server-sent-events/)) - ([English](https://fastapi.tiangolo.com/tutorial/server-sent-events/))
 * https://1a13cf5f.fastapitiangolo.pages.dev/de/tutorial/stream-json-lines/ - ([before](https://fastapi.tiangolo.com/de/tutorial/stream-json-lines/)) - ([English](https://fastapi.tiangolo.com/tutorial/stream-json-lines/))
-",
+",none
 django/django,20792,SnippyCodes,,"@JaeHyuckSa thanks for the feedback! I absolutely agree that testing both branches is important. I have made the following changes after carefully reviewing your suggestions
 1.Moved logic to existing class( `SetupConfigureLogging`).
 2.Updated Docstring to describe the signal behavior .
 3.Cleaned Up the ` import logging` inside the test method.
-4.Added test case for `LOGGING_CONFIG` branch ",
+4.Added test case for `LOGGING_CONFIG` branch ",bug
 scrapy/scrapy,7366,wRAR,"@@ -820,20 +830,149 @@ def start(
      def _start_asyncio(
          self, stop_after_crawl: bool, install_signal_handlers: bool
@@ -1269,14 +1269,14 @@ scrapy/scrapy,7366,wRAR,"@@ -820,20 +830,149 @@ def start(
                 ""This likely indicates that the reactorless crawler process ""
                 ""was not started correctly or has already been closed.""
             )
-```",
+```",bug
 pandas-dev/pandas,64993,jbrockmendel,"@@ -529,9 +529,12 @@ def test_is_datetime64_ns_dtype():
      assert not com.is_datetime64_ns_dtype(DatetimeTZDtype(""us"", ""US/Eastern""))
  
  
 +@pytest.mark.filterwarnings(
-+    ""ignore:Using 'generic' unit for NumPy timedelta:DeprecationWarning""",Could we just remove testing the unit-less case since that will break again in the future? ,
-pandas-dev/pandas,64291,sankerathul,,"@rhshadrach Just checking in, when do you expect this to be merged? I’m trying to understand the process better. Is there anything else I need to do on my end, or is it all set now?",
++    ""ignore:Using 'generic' unit for NumPy timedelta:DeprecationWarning""",Could we just remove testing the unit-less case since that will break again in the future?,none
+pandas-dev/pandas,64291,sankerathul,,"@rhshadrach Just checking in, when do you expect this to be merged? I’m trying to understand the process better. Is there anything else I need to do on my end, or is it all set now?",none
 tiangolo/fastapi,11000,KaniKim,"@@ -0,0 +1,213 @@
 +# 요청 본문
 +
@@ -1344,7 +1344,7 @@ tiangolo/fastapi,11000,KaniKim,"@@ -0,0 +1,213 @@
 +
 +...`description`과 `tax`는 (기본 값이 `None`으로 되어 있어) 선택적이기 때문에, 이 JSON ""`object`"" 다음과 같은 상황에서도 유효합니다:","```suggestion
 ...`description`과 `tax`는 (기본 값이 `None`으로 되어 있어) 선택적이기 때문에, 이 JSON ""`object`""는 다음과 같은 상황에서도 유효합니다:
-```",
+```",none
 tiangolo/fastapi,14986,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -1368,8 +1368,8 @@ tiangolo/fastapi,14986,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (2f9c914) during the generation of this report, so 0cf27ec was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
-django/django,20027,Eddy-123,,"Yes, I'll work on it over the weekend.",
+",none
+django/django,20027,Eddy-123,,"Yes, I'll work on it over the weekend.",none
 django/django,20308,VIZZARD-X,"@@ -274,6 +275,23 @@ def test_helpful_error_message_for_many2many_not_iterable(self):
          with self.assertRaisesMessage(DeserializationError, expected):
              next(serializers.deserialize(""json"", test_string, ignore=False))
@@ -1415,7 +1415,7 @@ index a775147259..4e74383ca9 100644
  class JsonSerializerTransactionTestCase(
 ```
 
-You should probably move this test to tests.py anyway to get coverage of the XML serializer.",
+You should probably move this test to tests.py anyway to get coverage of the XML serializer.",none
 django/django,20665,Antoliny0919,,"### 📊 Coverage Report for Changed Files
 
 ```
@@ -1431,18 +1431,18 @@ No lines with coverage information in this diff.
 
 **Note:** Missing lines are warnings only. Some lines may not be covered by SQLite tests as they are database-specific.
 
-For more information about code coverage on pull requests, see the [contributing documentation](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests).",
+For more information about code coverage on pull requests, see the [contributing documentation](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests).",none
 django/django,19794,cliffordgama,,"> Thanks @cliffordgama 👍 
 
 Thanks for the thorough review 🙇🏾
 
-",
+",none
 scrapy/scrapy,6940,thalissonvs,"@@ -336,6 +336,8 @@ def pop(self) -> Request | None:
  
      def push(self, request: Request) -> None:
          slot = self._downloader_interface.get_slot_key(request)
 +        # Handle None slot by converting to string
-+        slot = str(slot)",Yeah I was not sure how to handle this. Any ideas?,
++        slot = str(slot)",Yeah I was not sure how to handle this. Any ideas?,bug
 tiangolo/fastapi,15157,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -1466,7 +1466,7 @@ tiangolo/fastapi,15157,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (b707bb8) during the generation of this report, so 6e5e942 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 tiangolo/fastapi,14953,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -1490,7 +1490,7 @@ tiangolo/fastapi,14953,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (d2c17b6) during the generation of this report, so cf05823 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 pandas-dev/pandas,61828,eicchen,"@@ -268,16 +280,50 @@ def test_add_strings(dtype):
  def test_add_frame(dtype):
      arr = pd.array([""a"", ""b"", np.nan, np.nan], dtype=dtype)
@@ -1508,7 +1508,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -268,16 +280,50 @@ def test_add_strings(dtyp
 -    tm.assert_frame_equal(result, expected)
 +    tm.assert_frame_equal(result, expected, check_dtype=False)
 +
-+    if isinstance(dtype, ""str[python]""):","im pretty confident that this line is always going to raise TypeError, which can't possibly be what you intend.",
++    if isinstance(dtype, ""str[python]""):","im pretty confident that this line is always going to raise TypeError, which can't possibly be what you intend.",bug
 scrapy/scrapy,7385,wRAR,"@@ -651,14 +656,21 @@ Default: ``True``
  
  Whether to enable DNS in-memory cache.
@@ -1518,7 +1518,7 @@ scrapy/scrapy,7385,wRAR,"@@ -651,14 +656,21 @@ Default: ``True``
 +    :class:`~scrapy.resolver.CachingThreadedResolver` and
 +    :class:`~scrapy.resolver.CachingHostnameResolver`. It has no effect when
 +    :setting:`DNS_RESOLVER` is set to a different resolver or when
-+    :setting:`TWISTED_ENABLED` is ``False``.","A similar change may apply elsewhere. The idea is that a different DNS_RESOLVER may still respect some or all of the same settings as the default/built-in ones, so we should use ""may"" or similar to communicate that it is a possibility, not a given.",
++    :setting:`TWISTED_ENABLED` is ``False``.","A similar change may apply elsewhere. The idea is that a different DNS_RESOLVER may still respect some or all of the same settings as the default/built-in ones, so we should use ""may"" or similar to communicate that it is a possibility, not a given.",none
 scrapy/scrapy,7134,Cycloctane,"@@ -46,62 +13,64 @@ def _brotli_decompress(decompressor, data):
  
  
@@ -1610,36 +1610,36 @@ scrapy/scrapy,7134,Cycloctane,"@@ -46,62 +13,64 @@ def _brotli_decompress(decomp
 +    while not decompressor.is_finished():
 +        output_chunk = decompressor.process(b"""", output_buffer_limit=_CHUNK_SIZE)
 +        if not output_chunk:
-+            raise ValueError(""Truncated brotli compressed data"")",Apprently coverage shows this condition is not triggered in our tests.,
-scrapy/scrapy,7283,jhamze7,,"I've looked at the failing tests, and it looks like `127.0.0.2` is not configured on the GitHub macOS runner, and that's what's causing the `ConnectBindError: Can't assign requested address` error. Locally, the tests are passing because `127.0.0.2` is already aliased on my machine, and when I disable it, I can reproduce the same failure. On Linux and Windows, the full 127.0.0.0/8 range is treated as loopback and is bindable by default. On macOS, only explicitly configured loopback addresses are bindable, so something like 127.0.0.2 needs to be aliased first. Should we mention that in the documentation?",
-django/django,20587,charettes,,"Thanks for reviews @shaib, @felixxm and the latest tweaks @jacobtylerwalls 🙇 ",
++            raise ValueError(""Truncated brotli compressed data"")",Apprently coverage shows this condition is not triggered in our tests.,none
+scrapy/scrapy,7283,jhamze7,,"I've looked at the failing tests, and it looks like `127.0.0.2` is not configured on the GitHub macOS runner, and that's what's causing the `ConnectBindError: Can't assign requested address` error. Locally, the tests are passing because `127.0.0.2` is already aliased on my machine, and when I disable it, I can reproduce the same failure. On Linux and Windows, the full 127.0.0.0/8 range is treated as loopback and is bindable by default. On macOS, only explicitly configured loopback addresses are bindable, so something like 127.0.0.2 needs to be aliased first. Should we mention that in the documentation?",bug
+django/django,20587,charettes,,"Thanks for reviews @shaib, @felixxm and the latest tweaks @jacobtylerwalls 🙇 ",none
 psf/requests,6876,pszlazak,"@@ -44,6 +44,9 @@ set with `headers=`.
  If credentials for the hostname are found, the request is sent with HTTP Basic
  Auth.
  
-+Requests will search for the netrc file at `~/.netrc`, `~/_netrc`, or at the path",This doesn't list the Windows paths or how to disable this altogether. ,
++Requests will search for the netrc file at `~/.netrc`, `~/_netrc`, or at the path",This doesn't list the Windows paths or how to disable this altogether.,bug
 django/django,19713,Antoliny0919,,"Thank you for the review @jacobtylerwalls ! If this gets merged, could you please mention me beforehand? There are some CSS changes, so I'd like to take one more look :)
-(I'm a little nervous about how many unexpected regressions might come up 🫠)",
-scrapy/scrapy,7263,Kaileshwar16,,"@wRAR, Ive implemented the module-level warnings . However, this is causing 4 failures in tests/test_crawler_subprocess.py, i think these tests fail because they strictly assert that stderr is empty. Should I update these specific tests to filter out these deprecation warnings",
+(I'm a little nervous about how many unexpected regressions might come up 🫠)",none
+scrapy/scrapy,7263,Kaileshwar16,,"@wRAR, Ive implemented the module-level warnings . However, this is causing 4 failures in tests/test_crawler_subprocess.py, i think these tests fail because they strictly assert that stderr is empty. Should I update these specific tests to filter out these deprecation warnings",bug
 tiangolo/fastapi,14953,tiangolo,,"Hi, same issue here. I rolled back my local FastAPI version and noticed that 0.129.1 breaks our schemas. When generating TS clients from openapi.json, some File arrays are now interpreted as arrays of strings.
 
-It may be related to [this](https://github.com/OpenAPITools/openapi-generator/issues/20115).",
-scrapy/scrapy,7134,Cycloctane,,"Hey @Cycloctane, many thanks for the fix. I took the liberty of pushing fix for the ruff complaint and a test for the initially reported decompression bomb. ",
+It may be related to [this](https://github.com/OpenAPITools/openapi-generator/issues/20115).",bug
+scrapy/scrapy,7134,Cycloctane,,"Hey @Cycloctane, many thanks for the fix. I took the liberty of pushing fix for the ruff complaint and a test for the initially reported decompression bomb. ",none
 django/django,20837,nessita,,"> @Chadys Would this approach match what you suggested in the forum post? Thanks!
 
-Sorry, my feedback in the forum was just about the local name of the language which was [handled](https://github.com/django/django/pull/20708). I'm not actually fluent in Basque at all, I won't be of much help here. You might be thinking of someone else's feedback?",
-psf/requests,6996,abhi-jha,,"Sorry, perhaps I wasn't clear. Let's remove _only_  `flake8` since it's no longer used. We should be leaving `tox`. It is not a core part of the dev cycle, but is still available for developers who want it. Users can install tox if they need it.",
+Sorry, my feedback in the forum was just about the local name of the language which was [handled](https://github.com/django/django/pull/20708). I'm not actually fluent in Basque at all, I won't be of much help here. You might be thinking of someone else's feedback?",none
+psf/requests,6996,abhi-jha,,"Sorry, perhaps I wasn't clear. Let's remove _only_  `flake8` since it's no longer used. We should be leaving `tox`. It is not a core part of the dev cycle, but is still available for developers who want it. Users can install tox if they need it.",none
 psf/requests,6667,agubelu,,"@cyberw I remember doing some profiling on Windows as well and finding out that it was particularly infamous there, because the certificates were being reloaded not one, but two or three times per request. I don't recall the specific reason since I ran most of the experiments on Linux afterwards, but I think it had to do with the CA store being a folder instead of a bundle file.
 
-In any case, hopefully this mitigates the issue now that it's merged. If not, feel free to ping me and I'll try to follow up with something more specific for Windows.",
-scrapy/scrapy,7263,Kaileshwar16,,i am sorry i forgot to stage it,
-pallets/flask,5812,davidism,,Would be great if some people could test their apps with this branch. I'll plan to merge it a week from now.,
-django/django,20308,VIZZARD-X,,"Sounds good, next step would be adding a regression test.",
+In any case, hopefully this mitigates the issue now that it's merged. If not, feel free to ping me and I'll try to follow up with something more specific for Windows.",none
+scrapy/scrapy,7263,Kaileshwar16,,i am sorry i forgot to stage it,none
+pallets/flask,5812,davidism,,Would be great if some people could test their apps with this branch. I'll plan to merge it a week from now.,none
+django/django,20308,VIZZARD-X,,"Sounds good, next step would be adding a regression test.",none
 django/django,20864,kanin-kearpimy,"@@ -511,6 +511,11 @@ class AllFieldsModel(models.Model):
      gr = GenericRelation(DataModel)
  
  
-+class MixedFieldsModel(models.Model):","Having a look around at the other models with a JSONField in this file, they seem to have a ""supports_json_field"" attribute in their `Meta`.",
++class MixedFieldsModel(models.Model):","Having a look around at the other models with a JSONField in this file, they seem to have a ""supports_json_field"" attribute in their `Meta`.",none
 scrapy/scrapy,7367,albertedwardson,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7367?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 93.16%. Comparing base ([`2ce02d4`](https://app.codecov.io/gh/scrapy/scrapy/commit/2ce02d417a99343f630d97e6bb8def1760df1366?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`d7e095b`](https://app.codecov.io/gh/scrapy/scrapy/commit/d7e095bea73c1b11be752494fd196fb21e157c79?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -1668,31 +1668,31 @@ scrapy/scrapy,7367,albertedwardson,,"## [Codecov](https://app.codecov.io/gh/scra
 | [Files with missing lines](https://app.codecov.io/gh/scrapy/scrapy/pull/7367?dropdown=coverage&src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) | Coverage Δ | |
 |---|---|---|
 | [scrapy/http/request/\_\_init\_\_.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7367?src=pr&el=tree&filepath=scrapy%2Fhttp%2Frequest%2F__init__.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2h0dHAvcmVxdWVzdC9fX2luaXRfXy5weQ==) | `97.63% <ø> (-0.11%)` | :arrow_down: |
-</details>",
-psf/requests,7189,nateprewitt,,Updates should be migrated to pyproject.toml now.,
+</details>",none
+psf/requests,7189,nateprewitt,,Updates should be migrated to pyproject.toml now.,none
 django/django,20300,charettes,"@@ -703,12 +703,12 @@ def combine_expression(self, connector, sub_expressions):
      def combine_duration_expression(self, connector, sub_expressions):
          return self.combine_expression(connector, sub_expressions)
  
 -    def binary_placeholder_sql(self, value):
-+    def binary_placeholder_sql(self, value, compiler):",Will need to be mentionned in the release notes.,
++    def binary_placeholder_sql(self, value, compiler):",Will need to be mentionned in the release notes.,style
 tiangolo/fastapi,14953,tiangolo,,"Ah, the thing is that using `bytes` in Query parameters is undefined/not supported, as a URL can't really have pure bytes, they have to be encoded in ASCII.
 
 I also checked with Swagger UI and the behavior is the same with both `""format"": ""binary""` and `""contentMediaType"": ""application/octet-stream""`. In both cases it renders the same and doesn't work.
 
-<img width=""2980"" height=""1248"" alt=""image"" src=""https://github.com/user-attachments/assets/eaa53e49-85d4-4c2f-badc-401b8fe6e5b0"" />",
+<img width=""2980"" height=""1248"" alt=""image"" src=""https://github.com/user-attachments/assets/eaa53e49-85d4-4c2f-badc-401b8fe6e5b0"" />",bug
 tiangolo/fastapi,15139,svlandeg,,"## 📝 Docs preview
 
-Last commit cf6054db5b8c1e54fce36cd3f78c08eeded92934 at: https://396957b8.fastapitiangolo.pages.dev",
-pandas-dev/pandas,64950,jbrockmendel,,Thanks @jbrockmendel ,
-pandas-dev/pandas,61828,eicchen,,and the comment below updated,
-pandas-dev/pandas,61828,eicchen,,When i tried this locally i didn't need to modify ArrowEA at all.  What breaks without that change?,
+Last commit cf6054db5b8c1e54fce36cd3f78c08eeded92934 at: https://396957b8.fastapitiangolo.pages.dev",none
+pandas-dev/pandas,64950,jbrockmendel,,Thanks @jbrockmendel,none
+pandas-dev/pandas,61828,eicchen,,and the comment below updated,none
+pandas-dev/pandas,61828,eicchen,,When i tried this locally i didn't need to modify ArrowEA at all.  What breaks without that change?,bug
 pandas-dev/pandas,64726,jbrockmendel,"@@ -1249,6 +1256,16 @@ def put(
          if format is None:
              format = _global_config[""io""][""hdf""][""default_format""] or ""fixed""
          format = self._validate_format(format)
-+        if track_times is lib.no_default:","in that scenario, how would they silence the warning?",
-pallets/flask,5485,ThisIzAli2,,"Huh, why wasn't this caught by mypy strict?",
++        if track_times is lib.no_default:","in that scenario, how would they silence the warning?",none
+pallets/flask,5485,ThisIzAli2,,"Huh, why wasn't this caught by mypy strict?",none
 django/django,20027,Eddy-123,"@@ -607,3 +607,31 @@ def setUp(self):
          )
          self.enterContext(feature_patch_1)
@@ -1711,14 +1711,14 @@ django/django,20027,Eddy-123,"@@ -607,3 +607,31 @@ def setUp(self):
 +        cls.full_none = (None, None)
 +
 +    def test_filter_pk_in_partial_none(self):
-+        qs = User.objects",No need to define this separately. ,
++        qs = User.objects",No need to define this separately.,none
 pandas-dev/pandas,64542,natmokval,"@@ -125,7 +125,7 @@ def test_index_ops(func, request):
          expected = expected.astype(""Int64"")
      idx = func(idx)
      view_.iloc[0, 0] = 100
 -    tm.assert_index_equal(idx, expected, check_names=False)
-+    tm.assert_index_equal(idx, expected, exact=""equiv"", check_names=False)","Yes, sure. I opened the separate PR for the tests. Could you please take a look at #64580?",
-pandas-dev/pandas,64942,jorisvandenbossche,,Thanks @jorisvandenbossche ,
++    tm.assert_index_equal(idx, expected, exact=""equiv"", check_names=False)","Yes, sure. I opened the separate PR for the tests. Could you please take a look at #64580?",none
+pandas-dev/pandas,64942,jorisvandenbossche,,Thanks @jorisvandenbossche,none
 django/django,20938,VIZZARD-X,"@@ -173,6 +173,73 @@ Roughly translated, these votes mean:
  Although these votes are informal, they'll be taken very seriously. After a
  suitable voting period, if an obvious consensus arises we'll follow the votes.
@@ -1760,11 +1760,11 @@ django/django,20938,VIZZARD-X,"@@ -173,6 +173,73 @@ Roughly translated, these vo
 +  upcoming version to identify any backward-incompatible changes.
 +
 +* **Enable deprecation warnings:** Run your tests with deprecation warnings
-+  enabled to catch features that will be removed in future releases:","I may be mis-interpretting what is meant here, but I think I would do these before testing the latest pre-release. To make sure my project is ready, so they might sit better in the earlier section. ",
++  enabled to catch features that will be removed in future releases:","I may be mis-interpretting what is meant here, but I think I would do these before testing the latest pre-release. To make sure my project is ready, so they might sit better in the earlier section. ",none
 django/django,20960,anjaniacatus,,"That link doesn't reveal anything for me, see redbox:
 <img width=""1003"" height=""744"" alt=""no-comments"" src=""https://github.com/user-attachments/assets/f6ccc765-e36b-4556-b85d-7cdf90d6f79d"" />
 
-",
+",bug
 psf/requests,6724,nateprewitt,"@@ -90,13 +98,19 @@ def _urllib3_request_context(
      parsed_request_url = urlparse(request.url)
      scheme = parsed_request_url.scheme.lower()
@@ -1785,19 +1785,19 @@ psf/requests,6724,nateprewitt,"@@ -90,13 +98,19 @@ def _urllib3_request_context(
 +    elif verify is True and should_use_default_ssl_context:
          pool_kwargs[""ssl_context""] = _preloaded_ssl_context
      elif isinstance(verify, str):
-         if not os.path.isdir(verify):","That seems like a reasonable optimization, I guess we'd need to check how much time we're actually spending on the dir check. I assume we'll get feedback if we have cases where this is a bottleneck.",
+         if not os.path.isdir(verify):","That seems like a reasonable optimization, I guess we'd need to check how much time we're actually spending on the dir check. I assume we'll get feedback if we have cases where this is a bottleneck.",complexity
 scrapy/scrapy,7039,Laerte,"@@ -506,23 +505,23 @@ async def test_download_with_maxsize_per_req(
              await download_request(download_handler, request)
  
      @deferred_f_from_coro_f
 -    async def test_download_with_small_maxsize_per_spider(
 -        self, mockserver: MockServer, download_handler: DownloadHandlerProtocol
-+    async def test_download_with_small_maxsize_via_setting(","[nitpick] The test names changed from `per_spider` to `via_setting`, but these names could be more descriptive. Consider `test_download_maxsize_setting_blocks_small_response` and `test_download_maxsize_setting_allows_large_response` to better convey what each test validates.",
++    async def test_download_with_small_maxsize_via_setting(","[nitpick] The test names changed from `per_spider` to `via_setting`, but these names could be more descriptive. Consider `test_download_maxsize_setting_blocks_small_response` and `test_download_maxsize_setting_allows_large_response` to better convey what each test validates.",style
 tiangolo/fastapi,14953,tiangolo,,"Hi @tiangolo,
 from version 0.129.1 onward, parameters declared as a list of files (e.g., `support_files: Annotated[List[UploadFile], File(description=f""Optional. Files used to extract data."")] = None`) are rendered incorrectly in Swagger.
 
 <img width=""778"" height=""691"" alt=""image"" src=""https://github.com/user-attachments/assets/9fe63c77-7aeb-46bf-8c8d-01aafcdba4ee"" />
-",
+",none
 django/django,19794,cliffordgama,"@@ -1577,3 +1578,30 @@ def test_array_with_choices_display_for_field(self):
              self.empty_value,
          )
@@ -1823,13 +1823,13 @@ django/django,19794,cliffordgama,"@@ -1577,3 +1578,30 @@ def test_array_with_cho
 +    # RemovedInDjango70Warning.
 +    def test_exact_none_deprecation_warning(self):","> Might be nice to rewrite this slightly to assert against the query result so we can keep the test after we remove the deprecation warning.
 
-Yes, I agree. It is only like that is because `None` should be matching JSON `null` in the query, but there is currently no way to store a JSON `null` top-level element of an array per[ this thread](https://github.com/django/django/pull/19794#issuecomment-3437321628).",
+Yes, I agree. It is only like that is because `None` should be matching JSON `null` in the query, but there is currently no way to store a JSON `null` top-level element of an array per[ this thread](https://github.com/django/django/pull/19794#issuecomment-3437321628).",style
 scrapy/scrapy,7388,albertedwardson,"@@ -13,6 +13,7 @@
      rel_has_nofollow,
      set_environ,
      walk_modules,","kept it to keep the coverage and ensure it works as before 
 
-https://github.com/scrapy/scrapy/blob/e35263d33bc677868ee8eb702e4e9a44a39f6966/tests/test_utils_misc/__init__.py#L64-L68",
+https://github.com/scrapy/scrapy/blob/e35263d33bc677868ee8eb702e4e9a44a39f6966/tests/test_utils_misc/__init__.py#L64-L68",none
 django/django,20308,VIZZARD-X,"@@ -77,7 +77,10 @@ def queryset_iterator(obj, field):
                      chunk_size = (
                          2000 if getattr(attr, ""prefetch_cache_name"", None) else None
@@ -1837,7 +1837,7 @@ django/django,20308,VIZZARD-X,"@@ -77,7 +77,10 @@ def queryset_iterator(obj, fie
 -                    return attr.iterator(chunk_size)
 +                    query_set = attr.all()
 +                    if not query_set.totally_ordered:
-+                        query_set = query_set.order_by(""pk"")","Looking again, I'm wondering if we should rhyme with what the admin changelist does, and only use the pk to break ties, instead of replacing the entire ordering with the pk.",
++                        query_set = query_set.order_by(""pk"")","Looking again, I'm wondering if we should rhyme with what the admin changelist does, and only use the pk to break ties, instead of replacing the entire ordering with the pk.",none
 tiangolo/fastapi,14974,YuriiMotov,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -1861,7 +1861,7 @@ tiangolo/fastapi,14974,YuriiMotov,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (da19374) during the generation of this report, so 5161f7b was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 scrapy/scrapy,7283,jhamze7,"@@ -40,11 +41,51 @@ def download_handler_cls(self) -> type[DownloadHandlerProtocol]:
  
  
@@ -1891,7 +1891,7 @@ scrapy/scrapy,7283,jhamze7,"@@ -40,11 +41,51 @@ def download_handler_cls(self) -
 +            writer.close()
 +            await writer.wait_closed()
 +
-+        server = await asyncio.start_server(handle, host=""127.0.0.1"", port=0)",TBH I don't think reimplementing mockserver in asyncio inside a test function is a good idea. It should be possible to write a suitable resource for mockserver.,
++        server = await asyncio.start_server(handle, host=""127.0.0.1"", port=0)",TBH I don't think reimplementing mockserver in asyncio inside a test function is a good idea. It should be possible to write a suitable resource for mockserver.,none
 django/django,19968,jacobtylerwalls,,"> I'm good with the new proposed output posted in that comment. Thanks for working on it.
 > 
 > @nessita, any doubts?
@@ -1908,7 +1908,7 @@ from django.db.models.sql.compiler import (
 )
 ```
 
-But I acknowledge the challenge around that solution so the proposed outcome, as long as it's stable, is acceptable. Thanks for asking!",
+But I acknowledge the challenge around that solution so the proposed outcome, as long as it's stable, is acceptable. Thanks for asking!",none
 django/django,20754,vastus,,"Thanks for the review, Adam!
 
 > today I learned about weakref.finalize(), which seems like something to generally avoid…
@@ -1919,10 +1919,10 @@ That was new to me too. My first iteration was to keep track of the finalizer ob
 
 👍 
 
-Regarding those 4 failing checks: is there a way to run them successfully? I think they were all db related failures. Are we good to proceed, and if so what are the next steps?",
+Regarding those 4 failing checks: is there a way to run them successfully? I think they were all db related failures. Are we good to proceed, and if so what are the next steps?",none
 tiangolo/fastapi,15116,AhsanSheraz,,"Hey Maintainers,
 can you please add label & have a look, here?
-",
+",style
 scrapy/scrapy,7208,wRAR,"@@ -734,9 +789,9 @@ async def test_download_with_proxy_https_timeout(
          domain = ""https://no-such-domain.nosuch""
          request = Request(domain, meta={""proxy"": http_proxy, ""download_timeout"": 0.2})
@@ -1931,7 +1931,7 @@ scrapy/scrapy,7208,wRAR,"@@ -734,9 +789,9 @@ async def test_download_with_proxy_
 +            with pytest.raises(DownloadTimeoutError) as exc_info:
                  await download_handler.download_request(request)
 -        assert domain in exc_info.value.osError
-+        assert domain in str(exc_info.value)",The test now checks for domain presence in the error message string but doesn't verify the exception message format or structure. Consider using a more specific assertion like checking for the expected error message pattern to make the test more robust.,
++        assert domain in str(exc_info.value)",The test now checks for domain presence in the error message string but doesn't verify the exception message format or structure. Consider using a more specific assertion like checking for the expected error message pattern to make the test more robust.,bug
 django/django,20938,VIZZARD-X,"@@ -173,6 +173,73 @@ Roughly translated, these votes mean:
  Although these votes are informal, they'll be taken very seriously. After a
  suitable voting period, if an obvious consensus arises we'll follow the votes.
@@ -1959,7 +1959,7 @@ django/django,20938,VIZZARD-X,"@@ -173,6 +173,73 @@ Roughly translated, these vo
 +You can install the latest pre-release (Alpha, Beta, or Release Candidate)","```suggestion
 You can install the latest pre-release (alpha, beta, or release candidate)
 ```
-alpha, beta, and release candidate do not need to be capitalised. ",
+alpha, beta, and release candidate do not need to be capitalised. ",none
 tiangolo/fastapi,15023,tiangolo,,"## 📝 Docs preview
 
 Last commit c3a7df139fb7de6b2db7fdf220f4a3068fddd5fc at: https://300b6993.fastapitiangolo.pages.dev
@@ -1969,7 +1969,7 @@ Last commit c3a7df139fb7de6b2db7fdf220f4a3068fddd5fc at: https://300b6993.fastap
 * https://300b6993.fastapitiangolo.pages.dev/advanced/custom-response/ - ([before](https://fastapi.tiangolo.com/advanced/custom-response/))
 * https://300b6993.fastapitiangolo.pages.dev/advanced/response-directly/ - ([before](https://fastapi.tiangolo.com/advanced/response-directly/))
 * https://300b6993.fastapitiangolo.pages.dev/advanced/stream-data/ - ([before](https://fastapi.tiangolo.com/advanced/stream-data/))
-",
+",none
 pandas-dev/pandas,64752,jbrockmendel,"@@ -777,7 +777,12 @@ def _replace_regex(
          if not (
              self._can_hold_element(value) or (self.dtype == ""string"" and is_re(value))
@@ -1979,12 +1979,12 @@ pandas-dev/pandas,64752,jbrockmendel,"@@ -777,7 +777,12 @@ def _replace_regex(
 +            # replace_regex mutates values in-place, we must ensure the
 +            # block's data is independent.
              block = self.astype(np.dtype(object))
-+            block = block._maybe_copy(inplace=True)",Guard it behind a if astype_is_view ?,
++            block = block._maybe_copy(inplace=True)",Guard it behind a if astype_is_view ?,none
 django/django,19713,Antoliny0919,"@@ -429,6 +435,19 @@ Miscellaneous
    primary key when a ``QuerySet``'s ordering has been forcibly cleared by
    calling :meth:`~.QuerySet.order_by` with no arguments.
  
-+:mod:`django.contrib.admin`",This label got duplicated. You can move this item up above with the other one for django.contrib.admin.,
++:mod:`django.contrib.admin`",This label got duplicated. You can move this item up above with the other one for django.contrib.admin.,none
 scrapy/scrapy,7199,wRAR,"@@ -44,6 +44,12 @@ def __init__(self, crawler: Crawler):
          if not crawler.settings.getbool(""TELNETCONSOLE_ENABLED""):
              raise NotConfigured
@@ -1997,10 +1997,10 @@ scrapy/scrapy,7199,wRAR,"@@ -44,6 +44,12 @@ def __init__(self, crawler: Crawler)
 
 That is:
 - If the user does not override `TELNETCONSOLE_ENABLED`, setting `TELNET_ENABLED` to `False` automatically disables the telnet console.
-- Only if the user explicitly sets `TELNETCONSOLE_ENABLED` to `True` and `TELNET_ENABLED` to `False` will they get this warning.",
+- Only if the user explicitly sets `TELNETCONSOLE_ENABLED` to `True` and `TELNET_ENABLED` to `False` will they get this warning.",none
 django/django,20685,prafulgulani,,"Regarding the blank line, I've added it back as requested. My local pre-commit hooks were originally removing it, and the GitHub CI is currently flagging it as a linting error as well. I've kept it there for now to maintain the original formatting you mentioned but let me know if I should remove it to get the CI back to green.
 
-Is there anything else you'd like me to change?",
+Is there anything else you'd like me to change?",none
 tiangolo/fastapi,14973,svlandeg,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -2024,14 +2024,14 @@ tiangolo/fastapi,14973,svlandeg,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (fef2ce7) during the generation of this report, so a3c8c37 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 tiangolo/fastapi,15228,dependabot[bot],,"## 📝 Docs preview
 
-Last commit c5978610d903c9f71d95ff4cdf469942876a7a12 at: https://c8515caf.fastapitiangolo.pages.dev",
+Last commit c5978610d903c9f71d95ff4cdf469942876a7a12 at: https://c8515caf.fastapitiangolo.pages.dev",none
 scrapy/scrapy,7388,albertedwardson,"@@ -13,6 +13,7 @@
      rel_has_nofollow,
      set_environ,
-     walk_modules,","It's fine to keep it, but can you please wrap it in `pytest.warns()` then?",
+     walk_modules,","It's fine to keep it, but can you please wrap it in `pytest.warns()` then?",style
 scrapy/scrapy,7283,jhamze7,"@@ -40,11 +41,51 @@ def download_handler_cls(self) -> type[DownloadHandlerProtocol]:
  
  
@@ -2061,7 +2061,7 @@ scrapy/scrapy,7283,jhamze7,"@@ -40,11 +41,51 @@ def download_handler_cls(self) -
 +            writer.close()
 +            await writer.wait_closed()
 +
-+        server = await asyncio.start_server(handle, host=""127.0.0.1"", port=0)","I created `ClientIPResource` inside `mockserver/http_resources.py` and updated the test to use it, should be good to go.",
++        server = await asyncio.start_server(handle, host=""127.0.0.1"", port=0)","I created `ClientIPResource` inside `mockserver/http_resources.py` and updated the test to use it, should be good to go.",style
 django/django,20300,charettes,"@@ -115,36 +115,34 @@ def get_distance(self, f, value, lookup_type):
              ""Distance operations not available on this spatial backend.""
          )
@@ -2077,7 +2077,7 @@ django/django,20300,charettes,"@@ -115,36 +115,34 @@ def get_distance(self, f, v
  
 -        def transform_value(value, field):
 +        def must_transform_value(value, field):
-             return value is not None and value.srid != field.srid",Would you want to take this opportunity to factor this out into a static method?,
+             return value is not None and value.srid != field.srid",Would you want to take this opportunity to factor this out into a static method?,none
 scrapy/scrapy,7199,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7199?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :x: Patch coverage is `98.48485%` with `1 line` in your changes missing coverage. Please review.
 :white_check_mark: Project coverage is 91.67%. Comparing base ([`49930df`](https://app.codecov.io/gh/scrapy/scrapy/commit/49930dfec505305aafcb6b7b7eded610ca1df178?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`092925a`](https://app.codecov.io/gh/scrapy/scrapy/commit/092925a6da2f19902312b84b3a2bba61476e76d2?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -2114,12 +2114,12 @@ scrapy/scrapy,7199,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/utils/asyncio.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7199?src=pr&el=tree&filepath=scrapy%2Futils%2Fasyncio.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL2FzeW5jaW8ucHk=) | `100.00% <100.00%> (ø)` | |
 | [scrapy/utils/reactorless.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7199?src=pr&el=tree&filepath=scrapy%2Futils%2Freactorless.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL3JlYWN0b3JsZXNzLnB5) | `100.00% <100.00%> (ø)` | |
 | [scrapy/crawler.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7199?src=pr&el=tree&filepath=scrapy%2Fcrawler.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NyYXdsZXIucHk=) | `92.44% <97.67%> (+0.42%)` | :arrow_up: |
-</details>",
+</details>",none
 tiangolo/fastapi,15267,dependabot[bot],,"## 📝 Docs preview
 
-Last commit 942298667f8d1602646ccb636da0d7fad59d363d at: https://214aaff2.fastapitiangolo.pages.dev",
+Last commit 942298667f8d1602646ccb636da0d7fad59d363d at: https://214aaff2.fastapitiangolo.pages.dev",none
 django/django,21035,smithdc1,,"Jacob -- I got this as far as I could tonight. As it's a release blocker, I've shared my current draft so you can see progress. 
-",
+",none
 tiangolo/fastapi,15023,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -2143,7 +2143,7 @@ tiangolo/fastapi,15023,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (c0836dc) during the generation of this report, so c3f54a0 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 pallets/flask,5737,strugee,,"> That's good to know, rST links are a lot more complicated than I already thought they were. Ultimately, we're moving to myst-parser and Markdown, so this problem will go away.
 
 IMV,  the [CommonMark Spec on hyperlinks](https://spec.commonmark.org/0.31.2/#links) is not less complicated than the corresponding [reStructuredText Markup Specification](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#hyperlink-references). The problem is the [misleading](https://github.com/sphinx-doc/sphinx/issues/13613) Sphinx rST primer.
@@ -2161,7 +2161,7 @@ answering questions, and making PRs.
 
 __ https://palletsprojects.com/contributing/
 ~~~
-",
+",none
 tiangolo/fastapi,15293,YuriiMotov,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -2184,14 +2184,14 @@ tiangolo/fastapi,15293,YuriiMotov,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__
   </picture>
 </a>
 
-",
-psf/requests,6767,nateprewitt,,"@dkliban It should go out with the next release. We'll update once we have a clearer timeline, we'll see what we can do next week.",
+",none
+psf/requests,6767,nateprewitt,,"@dkliban It should go out with the next release. We'll update once we have a clearer timeline, we'll see what we can do next week.",none
 django/django,20837,nessita,,"> I cannot tell anything from a basque point of view 😶
 > 
 > But overall it's looking good!
 
-@claudep Thanks! I could use the approval to be able to merge.",
-scrapy/scrapy,7215,Santiago-Beltran,,Please enable and use pre-commit as documented in https://docs.scrapy.org/en/latest/contributing.html#pre-commit,
+@claudep Thanks! I could use the approval to be able to merge.",none
+scrapy/scrapy,7215,Santiago-Beltran,,Please enable and use pre-commit as documented in https://docs.scrapy.org/en/latest/contributing.html#pre-commit,style
 django/django,19713,Antoliny0919,"@@ -17,9 +17,9 @@
  <form method=""post"">{% csrf_token %}
    <fieldset class=""module aligned"">
@@ -2199,7 +2199,7 @@ django/django,19713,Antoliny0919,"@@ -17,9 +17,9 @@
 -      {{ form.email.errors }}
        <div class=""flex-container"">
          <label for=""id_email"">{% translate 'Email address:' %}</label>
-+        {{ form.email.errors }}","I think I would expect a simple test or two in the tests/auth_tests/test_templates.py corresponding to these changes. I don't want to encourage brittle tests that make us afraid of changing our templates, but it would just give me a little confidence wading into this area 🏊 .",
++        {{ form.email.errors }}","I think I would expect a simple test or two in the tests/auth_tests/test_templates.py corresponding to these changes. I don't want to encourage brittle tests that make us afraid of changing our templates, but it would just give me a little confidence wading into this area 🏊 .",none
 scrapy/scrapy,7134,Cycloctane,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7134?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :x: Patch coverage is `89.36170%` with `5 lines` in your changes missing coverage. Please review.
 :white_check_mark: Project coverage is 91.40%. Comparing base ([`426aafd`](https://app.codecov.io/gh/scrapy/scrapy/commit/426aafddca8182dba12da819046272a8fad41e72?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`3045712`](https://app.codecov.io/gh/scrapy/scrapy/commit/30457126b0489ec6452b3981f6a39d254d6a1a1d?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -2234,7 +2234,7 @@ scrapy/scrapy,7134,Cycloctane,,"## [Codecov](https://app.codecov.io/gh/scrapy/sc
 | [scrapy/downloadermiddlewares/httpcompression.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7134?src=pr&el=tree&filepath=scrapy%2Fdownloadermiddlewares%2Fhttpcompression.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2Rvd25sb2FkZXJtaWRkbGV3YXJlcy9odHRwY29tcHJlc3Npb24ucHk=) | `94.01% <100.00%> (-0.06%)` | :arrow_down: |
 | [scrapy/utils/gz.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7134?src=pr&el=tree&filepath=scrapy%2Futils%2Fgz.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL2d6LnB5) | `100.00% <100.00%> (ø)` | |
 | [scrapy/utils/\_compression.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7134?src=pr&el=tree&filepath=scrapy%2Futils%2F_compression.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL19jb21wcmVzc2lvbi5weQ==) | `92.30% <86.84%> (-5.07%)` | :arrow_down: |
-</details>",
+</details>",none
 tiangolo/fastapi,14681,casperdcl,"@@ -7,6 +9,7 @@
  async def fake_video_streamer():
      for i in range(10):
@@ -2243,8 +2243,8 @@ tiangolo/fastapi,14681,casperdcl,"@@ -7,6 +9,7 @@
         await asyncio.sleep(0)
 ```
 
-`0` is enough, no need to slow it down",
-scrapy/scrapy,7137,wRAR,,This is no longer critical as coverage 7.11.3 demoted the error back to a warning.,
+`0` is enough, no need to slow it down",none
+scrapy/scrapy,7137,wRAR,,This is no longer critical as coverage 7.11.3 demoted the error back to a warning.,none
 django/django,20749,KhadyotTakale,"@@ -54,10 +54,13 @@ def __init__(self, scope, body_file):
          self.path = scope[""path""]
          self.script_name = get_script_prefix(scope)
@@ -2259,7 +2259,7 @@ django/django,20749,KhadyotTakale,"@@ -54,10 +54,13 @@ def __init__(self, scope,
          else:
 -            self.path_info = scope[""path""]
 +            self.path_info = self.path","Thanks for the review and for the cosmetic updates! I appreciate the guidance and the improvements to align it with the project style. Happy to contribute.
-",
+",none
 pandas-dev/pandas,65054,jbrockmendel,"@@ -136,25 +136,37 @@ cpdef ndarray[int64_t, ndim=1] unique_deltas(const int64_t[:] arr):
          An ordered ndarray[int64_t]
      """"""
@@ -2297,7 +2297,7 @@ pandas-dev/pandas,65054,jbrockmendel,"@@ -136,25 +136,37 @@ cpdef ndarray[int64_
 -    result = np.array(uniques, dtype=np.int64)
 +    result = np.empty(num_uniques, dtype=np.int64)
 +    if num_uniques > 0:
-+        memcpy(cnp.PyArray_DATA(result), uniques, num_uniques * sizeof(int64_t))",Is there not a NumPy C API that could accomplished something similar to the memcpy?,
++        memcpy(cnp.PyArray_DATA(result), uniques, num_uniques * sizeof(int64_t))",Is there not a NumPy C API that could accomplished something similar to the memcpy?,none
 pandas-dev/pandas,64148,gautamvarmadatla,"@@ -2094,9 +2096,57 @@ def get_join_indexers(
      ):
          _, lidx, ridx = left.join(right, how=how, return_indexers=True, sort=sort)
@@ -2323,7 +2323,7 @@ pandas-dev/pandas,64148,gautamvarmadatla,"@@ -2094,9 +2096,57 @@ def get_join_in
 +                    if isinstance(r, range):
 +                        right = RangeIndex(r.start, r.stop, r.step, name=right.name)
 +                    if (
-+                        isinstance(right, RangeIndex)","Yes right can already be a `RangeIndex` there. `extract_array` keeps it unchanged and `Index(..., copy=False)` preserves it, so I think check is still needed. ",
++                        isinstance(right, RangeIndex)","Yes right can already be a `RangeIndex` there. `extract_array` keeps it unchanged and `Index(..., copy=False)` preserves it, so I think check is still needed. ",none
 pandas-dev/pandas,64148,gautamvarmadatla,"@@ -2109,9 +2111,56 @@ def get_join_indexers(
      ):
          _, lidx, ridx = left.join(right, how=how, return_indexers=True, sort=sort)
@@ -2350,8 +2350,8 @@ pandas-dev/pandas,64148,gautamvarmadatla,"@@ -2109,9 +2111,56 @@ def get_join_in
 +                        right = RangeIndex(r.start, r.stop, r.step, name=right.name)
 +
 +                if (
-+                    isinstance(right, RangeIndex)","yes we can, indented both branches",
-django/django,20702,VIZZARD-X,,"buildbot, test on oracle.",
++                    isinstance(right, RangeIndex)","yes we can, indented both branches",none
+django/django,20702,VIZZARD-X,,"buildbot, test on oracle.",none
 scrapy/scrapy,7161,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7161?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :x: Patch coverage is `96.00000%` with `3 lines` in your changes missing coverage. Please review.
 :white_check_mark: Project coverage is 91.48%. Comparing base ([`5105f55`](https://app.codecov.io/gh/scrapy/scrapy/commit/5105f55a980640aa749fdf788fb50f82f385de60?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`3002b3e`](https://app.codecov.io/gh/scrapy/scrapy/commit/3002b3ea200dff74937d1e4fbc9feb1299d509b9?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -2390,8 +2390,8 @@ scrapy/scrapy,7161,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/core/engine.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7161?src=pr&el=tree&filepath=scrapy%2Fcore%2Fengine.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvZW5naW5lLnB5) | `88.85% <91.66%> (+0.53%)` | :arrow_up: |
 | [scrapy/extensions/feedexport.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7161?src=pr&el=tree&filepath=scrapy%2Fextensions%2Ffeedexport.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2V4dGVuc2lvbnMvZmVlZGV4cG9ydC5weQ==) | `96.89% <95.83%> (-0.34%)` | :arrow_down: |
 | [scrapy/utils/signal.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7161?src=pr&el=tree&filepath=scrapy%2Futils%2Fsignal.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL3NpZ25hbC5weQ==) | `97.46% <96.87%> (-0.61%)` | :arrow_down: |
-</details>",
-scrapy/scrapy,7036,albertedwardson,,"Oh, sorry, my bad. When I tested locally, I assumed the hanging test case was broken because I was running tests on my work PC with a weird Windows setup and a custom-compiled Python build",
+</details>",bug
+scrapy/scrapy,7036,albertedwardson,,"Oh, sorry, my bad. When I tested locally, I assumed the hanging test case was broken because I was running tests on my work PC with a weird Windows setup and a custom-compiled Python build",none
 pandas-dev/pandas,61828,eicchen,"@@ -899,6 +906,13 @@ def _evaluate_op_method(self, other, op, arrow_funcs) -> Self:
          ):
              if op in [operator.add, roperator.radd]:
@@ -2406,10 +2406,10 @@ pandas-dev/pandas,61828,eicchen,"@@ -899,6 +906,13 @@ def _evaluate_op_method(se
 The cast converts `other` to match the dtype of `pa_array` ensuring the operation is compatible. Simply casting the DataFrame as an object only works for the python engine. We're also making sure that other is a type we allow before casting. 
 
 An additional issue this would solve is that pa.string() and pa.large_string() are otherwise incompatible with each other
- ",
+ ",bug
 pandas-dev/pandas,64952,jbrockmendel,,"> Does this have any public API impact that's worth a whatsnew?
 
-No, this is pretty much just future-proofing for a world where everything is directly EA-backed.",
+No, this is pretty much just future-proofing for a world where everything is directly EA-backed.",none
 tiangolo/fastapi,15178,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -2433,9 +2433,9 @@ tiangolo/fastapi,15178,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (30bd2d5) during the generation of this report, so 6cd66ac was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
-scrapy/scrapy,7134,Cycloctane,,I don't know if using 64GB zip bomb in tests is a good idea. It will stuck and crash the ci (or someone's computer) if a regression is introduced.,
-scrapy/scrapy,7283,jhamze7,,It looks like the Windows job failed because of a network timeout before the tests ran.,
+",none
+scrapy/scrapy,7134,Cycloctane,,I don't know if using 64GB zip bomb in tests is a good idea. It will stuck and crash the ci (or someone's computer) if a regression is introduced.,complexity
+scrapy/scrapy,7283,jhamze7,,It looks like the Windows job failed because of a network timeout before the tests ran.,bug
 django/django,20539,artirix1927,,"> I think sometimes the GitHub UI isn't super helpful showing replies. I replied to a comment from a previous review: here [#20539 (comment)](https://github.com/django/django/pull/20539#discussion_r2756305584)
 > 
 > In that review, I added a suggestion to replace the manual content type creations with stepwise migrations, e.g. 0001, then 0002:
@@ -2457,17 +2457,17 @@ It also seems that other PRs are experiencing similar failures today, so I wante
 
 Could you please confirm whether this is on my side or related to the CI setup?
 
-Thank you.",
+Thank you.",none
 psf/requests,6774,branchv,,"> we already slated for moving to `pyproject.toml` in the next release which would have already included this change. I would have probably waited until we resolve #6767 and #6757 but this is fine.
 
-What's the timeframe for the next release? Is there likely to be one in the next week? Next month? Will it take 12 months? :D The existing tag history leads me to think I shouldn't attempt to read anything into its cadence.",
+What's the timeframe for the next release? Is there likely to be one in the next week? Next month? Will it take 12 months? :D The existing tag history leads me to think I shouldn't attempt to read anything into its cadence.",none
 django/django,19713,Antoliny0919,,"> Thank you for the review @jacobtylerwalls ! If this gets merged, could you please mention me beforehand?
 
-Yes! I won't merge until I mark it Ready For Checkin, and I won't advance any other admin PRs until you have a chance to bring anything in RFC to completion.",
+Yes! I won't merge until I mark it Ready For Checkin, and I won't advance any other admin PRs until you have a chance to bring anything in RFC to completion.",none
 scrapy/scrapy,7198,Ad7amstein,"@@ -33,9 +33,6 @@ Request objects
  
      :param callback: sets :attr:`callback`, defaults to ``None``.
- ",Another extra newline,
+ ",Another extra newline,style
 scrapy/scrapy,7385,wRAR,"@@ -129,6 +129,173 @@ example:
  .. autofunction:: scrapy.utils.reactor.is_asyncio_reactor_installed
  
@@ -2597,10 +2597,10 @@ scrapy/scrapy,7385,wRAR,"@@ -129,6 +129,173 @@ example:
 +.. autoclass:: scrapy.utils.asyncio.AsyncioLoopingCall
 +.. autofunction:: scrapy.utils.asyncio.run_in_thread","I wonder if we should emphasize these over the non-Twisted-only approaches, as a way to write ""universal code"", i.e. code that would work the same if used in a project that uses a non-asyncio reactor.
 
-No strong opinion, though. The current write up looks great.",
+No strong opinion, though. The current write up looks great.",style
 psf/requests,6667,agubelu,,"Given this breaks the behavior of the module for a whole class of users as it's written today, there's not much to do to advance it. 
 
-Even still, I'm pretty sure SSLComtext is not itself thread safe but I need to find a reference for that so loading it at the module will likely cause issues",
+Even still, I'm pretty sure SSLComtext is not itself thread safe but I need to find a reference for that so loading it at the module will likely cause issues",complexity
 tiangolo/fastapi,15277,dependabot[bot],,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -2624,7 +2624,7 @@ tiangolo/fastapi,15277,dependabot[bot],,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMM
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (cc47796) during the generation of this report, so 9274097 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 django/django,19713,Antoliny0919,"@@ -17,9 +17,9 @@
  <form method=""post"">{% csrf_token %}
    <fieldset class=""module aligned"">
@@ -2632,7 +2632,7 @@ django/django,19713,Antoliny0919,"@@ -17,9 +17,9 @@
 -      {{ form.email.errors }}
        <div class=""flex-container"">
          <label for=""id_email"">{% translate 'Email address:' %}</label>
-+        {{ form.email.errors }}",I agree. I felt the same way 👍,
++        {{ form.email.errors }}",I agree. I felt the same way 👍,bug
 django/django,20300,charettes,"@@ -115,36 +115,34 @@ def get_distance(self, f, value, lookup_type):
              ""Distance operations not available on this spatial backend.""
          )
@@ -2648,20 +2648,20 @@ django/django,20300,charettes,"@@ -115,36 +115,34 @@ def get_distance(self, f, v
  
 -        def transform_value(value, field):
 +        def must_transform_value(value, field):
-             return value is not None and value.srid != field.srid","Sure thing, wanted to keep the change as minimal as possible to ease review but I'll separate it in a follow up commit and leave it to you to determine if it needs to be folded.",
-pandas-dev/pandas,65054,jbrockmendel,,Thanks @jbrockmendel ,
+             return value is not None and value.srid != field.srid","Sure thing, wanted to keep the change as minimal as possible to ease review but I'll separate it in a follow up commit and leave it to you to determine if it needs to be folded.",none
+pandas-dev/pandas,65054,jbrockmendel,,Thanks @jbrockmendel,none
 pandas-dev/pandas,64918,dependabot[bot],,"From https://github.com/pandas-dev/pandas/actions/runs/23791997320?pr=64291:
 
 > Failed to save: Unable to reserve cache with key micromamba-downloads--linux-64, another job may be creating this cache.
 
-@mroeschke that seems to be a new error after merging this PR",
-scrapy/scrapy,7036,albertedwardson,,got #7003 in https://github.com/scrapy/scrapy/actions/runs/17397878619/job/49386271260?pr=7036 and https://github.com/scrapy/scrapy/actions/runs/17397878619/job/49386271264?pr=7036 test runs,
+@mroeschke that seems to be a new error after merging this PR",bug
+scrapy/scrapy,7036,albertedwardson,,got #7003 in https://github.com/scrapy/scrapy/actions/runs/17397878619/job/49386271260?pr=7036 and https://github.com/scrapy/scrapy/actions/runs/17397878619/job/49386271264?pr=7036 test runs,none
 scrapy/scrapy,7245,veeceey,,"Thanks for the review @wRAR! I've cleaned up the PR:
 
 - **Removed unrelated changes**: The sitemap query-parameter fix (`scrapy/spiders/sitemap.py` + tests) was accidentally included in this docs-only PR. Those changes have been reverted out and can be submitted as a separate PR if needed.
 - **Improved line wrapping**: Wrapped a long line in the scheduler bullet point for better readability.
 
-The PR now only contains the `dont_filter` docstring improvement as described in #6398. Let me know if there's anything else!",
+The PR now only contains the `dont_filter` docstring improvement as described in #6398. Let me know if there's anything else!",bug
 django/django,20702,VIZZARD-X,"@@ -720,7 +720,15 @@ class KeyTransformNumericLookupMixin:
      def process_rhs(self, compiler, connection):
          rhs, rhs_params = super().process_rhs(compiler, connection)
@@ -2673,7 +2673,7 @@ django/django,20702,VIZZARD-X,"@@ -720,7 +720,15 @@ class KeyTransformNumericLoo
 +                    new_params.append(
 +                        json.loads(value) if isinstance(value, str) else value
 +                    )
-+                except (json.JSONDecodeError, TypeError):",Do we need to except `TypeError`?,
++                except (json.JSONDecodeError, TypeError):",Do we need to except `TypeError`?,bug
 scrapy/scrapy,7385,wRAR,"@@ -129,6 +129,168 @@ example:
  .. autofunction:: scrapy.utils.reactor.is_asyncio_reactor_installed
  
@@ -2736,7 +2736,7 @@ scrapy/scrapy,7385,wRAR,"@@ -129,6 +129,168 @@ example:
 +:class:`~twisted.internet.defer.Deferred` objects doesn't require a reactor, so
 +code that uses :class:`~twisted.internet.defer.Deferred`,
 +:class:`~twisted.python.failure.Failure` and some other Twisted APIs will not
-+necessarily stop working.",Do you have an example which will stop working? Is it about callLater and deferToThread mainly? It'd be nice to mention a couple of most common scenarios,
++necessarily stop working.",Do you have an example which will stop working? Is it about callLater and deferToThread mainly? It'd be nice to mention a couple of most common scenarios,none
 pandas-dev/pandas,61828,eicchen,"@@ -865,7 +865,9 @@ def _op_method_error_message(self, other, op) -> str:
      def _evaluate_op_method(self, other, op, arrow_funcs) -> Self:
          pa_type = self._pa_array.type
@@ -2744,7 +2744,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -865,7 +865,9 @@ def _op_method_error_messag
 -        other = self._box_pa(other)
 +        other_NA = self._box_pa(other)
 +        # pyarrow gets upset if you try to join a NullArray
-+        other = other_NA.cast(pa_type)","I only ran the array folder because the full suite takes a lot of time, Ill be sure to run the full thing going forward. That's on me.",
++        other = other_NA.cast(pa_type)","I only ran the array folder because the full suite takes a lot of time, Ill be sure to run the full thing going forward. That's on me.",complexity
 scrapy/scrapy,7199,wRAR,"@@ -56,10 +57,29 @@ def is_asyncio_available() -> bool:
      loop or await on :class:`asyncio.Future` objects in Scrapy-related code,
      but it's possible to await on :class:`~twisted.internet.defer.Deferred`
@@ -2760,7 +2760,7 @@ scrapy/scrapy,7199,wRAR,"@@ -56,10 +57,29 @@ def is_asyncio_available() -> bool:
 +    # be false positives due to some 3rd-party code installing it as a side
 +    # effect.
 +    try:
-+        asyncio.get_running_loop()",(may apply to `is_reactorless()` as well),
++        asyncio.get_running_loop()",(may apply to `is_reactorless()` as well),none
 tiangolo/fastapi,14964,tiangolo,,"## 📝 Docs preview
 
 Last commit c21b0aac6d9eb3b240941f51d42735e912b2f87f at: https://e3d39a97.fastapitiangolo.pages.dev
@@ -2768,12 +2768,12 @@ Last commit c21b0aac6d9eb3b240941f51d42735e912b2f87f at: https://e3d39a97.fastap
 ### Modified Pages
 
 * https://e3d39a97.fastapitiangolo.pages.dev/reference/responses/ - ([before](https://fastapi.tiangolo.com/reference/responses/))
-",
+",none
 django/django,20960,anjaniacatus,,"@jacobtylerwalls https://github.com/django/django/commit/26f8929f16c514bd9967cd78d8dcd7760b82cc92#r180557939 is the direct link.
 
 @anjaniacatus If you'd be willing to open a PR, that'd be great! (No need for a new Trac ticket, just reference the existing one). Even if to serve as a better place for this discussion.
 
-",
+",none
 pandas-dev/pandas,61828,eicchen,"@@ -8444,9 +8448,9 @@ def _maybe_align_series_as_frame(self, series: Series, axis: AxisInt):
          """"""
          rvalues = series._values
@@ -2795,15 +2795,15 @@ if not isinstance(rvalues, (np.ndarray, DatetimeArray, TimedeltaArray)):
         df = DataFrame({i: rvalues[[i]].repeat(nrows) for i in range(other.shape[1])}, dtype=rvalues.dtype)
    df.index = other.index
    df.columns = other.columns
-```",
+```",none
 django/django,19713,Antoliny0919,"@@ -429,6 +429,16 @@ Miscellaneous
    primary key when a ``QuerySet``'s ordering has been forcibly cleared by
    calling :meth:`~.QuerySet.order_by` with no arguments.
  
-+* In order to improve accessibility of the admin change forms:","Please move this under a new heading for django.contrib.admin like in https://github.com/django/django/pull/20601, since we anticipate more than one.",
++* In order to improve accessibility of the admin change forms:","Please move this under a new heading for django.contrib.admin like in https://github.com/django/django/pull/20601, since we anticipate more than one.",style
 tiangolo/fastapi,14949,dependabot[bot],,"## 📝 Docs preview
 
-Last commit e64e9457cb49960022189e60b752115c1e7df04e at: https://290098a7.fastapitiangolo.pages.dev",
+Last commit e64e9457cb49960022189e60b752115c1e7df04e at: https://290098a7.fastapitiangolo.pages.dev",none
 pandas-dev/pandas,61828,eicchen,"@@ -8491,7 +8491,10 @@ def to_series(right):
              # pass dtype to avoid doing inference, which would break consistency
              #  with Index/Series ops
@@ -2811,16 +2811,16 @@ pandas-dev/pandas,61828,eicchen,"@@ -8491,7 +8491,10 @@ def to_series(right):
 -            if getattr(right, ""dtype"", None) == object:
 +            if (
 +                getattr(right, ""dtype"", None) == ""object""
-+                or getattr(right, ""dtype"", None) == object","No, i mean the added check looks redundant",
++                or getattr(right, ""dtype"", None) == object","No, i mean the added check looks redundant",none
 django/django,19794,cliffordgama,"@@ -552,7 +594,7 @@ def process_rhs(self, compiler, connection):
  
      def as_oracle(self, compiler, connection):
          rhs, rhs_params = super().process_rhs(compiler, connection)
 -        if rhs_params == [""null""]:
-+        if tuple(rhs_params) == (""null"",):","This seems like it was missed in ticket-35972, I'll open a PR against main if so.",
++        if tuple(rhs_params) == (""null"",):","This seems like it was missed in ticket-35972, I'll open a PR against main if so.",none
 tiangolo/fastapi,14973,svlandeg,,"## 📝 Docs preview
 
-Last commit 5bed10c35358998d1ecc82e86ef273a6d023c4a6 at: https://18603107.fastapitiangolo.pages.dev",
+Last commit 5bed10c35358998d1ecc82e86ef273a6d023c4a6 at: https://18603107.fastapitiangolo.pages.dev",none
 django/django,21029,jacobtylerwalls,"@@ -108,22 +108,25 @@ def test_closes_connections(self):
  
  @unittest.skipUnless(connection.vendor == ""sqlite"", ""SQLite specific test."")
@@ -2838,10 +2838,10 @@ django/django,21029,jacobtylerwalls,"@@ -108,22 +108,25 @@ def test_closes_conne
 +        # Don't lock the default database under parallel test execution.
 +        conn = self.server_thread.connections_override[""other""]","Right it can be shared between threads but not between processes.
 
-Since the test runner is single-threaded it will only execute on test at a time (within a process) so if each process has its own in-memory SQLite database there cannot be interference from other tests at all.",
+Since the test runner is single-threaded it will only execute on test at a time (within a process) so if each process has its own in-memory SQLite database there cannot be interference from other tests at all.",bug
 pandas-dev/pandas,64291,sankerathul,,"> @sankerathul thanks for the PR!
 Thanks @jorisvandenbossche for the support in closing my first PR in Pandas, excited to keep contributing and looking forward to it.
-",
+",none
 django/django,20792,SnippyCodes,"@@ -586,6 +586,31 @@ def test_configure_initializes_logging(self):
              setup()
          self.assertTrue(dictConfig.called)
@@ -2861,7 +2861,7 @@ django/django,20792,SnippyCodes,"@@ -586,6 +586,31 @@ def test_configure_initial
 +            },
 +        }
 +        logger = logging.getLogger(""django.test_custom_logger"")
-+        original_level = logger.level","Rather than use `original_level`, assert that it's a specific value.",
++        original_level = logger.level","Rather than use `original_level`, assert that it's a specific value.",style
 scrapy/scrapy,7385,wRAR,"@@ -129,6 +129,173 @@ example:
  .. autofunction:: scrapy.utils.reactor.is_asyncio_reactor_installed
  
@@ -3007,7 +3007,7 @@ scrapy/scrapy,7385,wRAR,"@@ -129,6 +129,173 @@ example:
 +---------------
 +
 +**ImportError: Import of twisted.internet.reactor is forbidden when running**
-+**without a Twisted reactor [...]:** Scrapy is configured to run without a",I did it exactly because PyCharm didn't recognize it. I can confirm that the proposed fix works when rendered to HTML.,
++**without a Twisted reactor [...]:** Scrapy is configured to run without a",I did it exactly because PyCharm didn't recognize it. I can confirm that the proposed fix works when rendered to HTML.,bug
 django/django,20601,jacobtylerwalls,"@@ -828,6 +828,7 @@ a.deletelink:focus, a.deletelink:hover {
  
  .titles-and-tools {
@@ -3018,7 +3018,7 @@ With the current change, the title and object-tools area feels a bit less like a
 
 It looks fine in general, but on the changelist page when the search and sidebar filter are active, it feels a bit too cramped.
 
-<img width=""1438"" height=""452"" alt=""Image"" src=""https://github.com/user-attachments/assets/2d4af6d7-e6df-4aa5-a054-15521a900d58"" />",
+<img width=""1438"" height=""452"" alt=""Image"" src=""https://github.com/user-attachments/assets/2d4af6d7-e6df-4aa5-a054-15521a900d58"" />",style
 django/django,19794,cliffordgama,"@@ -1235,3 +1251,112 @@ def test_literal_annotation_filtering(self):
              data__foo=""bar""
          )
@@ -3058,7 +3058,7 @@ django/django,19794,cliffordgama,"@@ -1235,3 +1251,112 @@ def test_literal_annot
 +        )
 +
 +    def test_case_expression(self):
-+        with self.subTest(""JSONNull() in When.then""):","I would just explode these out into separate test methods, since the tests don't share state.",
++        with self.subTest(""JSONNull() in When.then""):","I would just explode these out into separate test methods, since the tests don't share state.",none
 psf/requests,6667,agubelu,,"This patch has the side-effect, that it is no longer possible to pass in a custom ssl_context via the PoolManager.
 This is a problem because now it does not seem possible anymore to enable/use a custom ssl_context to reduce the OpenSSL seclevel used by request. The following worked in 2.31.0 and stopped working now:
 
@@ -3085,7 +3085,7 @@ def post(url, cert=None, data=None, verify=True, headers=None):
 This worked in 2.31.0 and stopped working, because custom 'ssl_context' is overwritten by default 'ssl_context' with this merge request.
 
 I think it would be good to support a custom ssl_context again, since otherwise it does not seem to be possible to change the seclevel settings of python requests anymore and that is required if you are working with legacy code and old certificates that can't easily be renewed.
-",
+",bug
 django/django,20436,felixxm,"@@ -2056,12 +2079,50 @@ def _batched_insert(
                  )
          return inserted_rows
@@ -3137,7 +3137,7 @@ django/django,20436,felixxm,"@@ -2056,12 +2079,50 @@ def _batched_insert(
 +            obj = self._clone()
          if obj._sticky_filter:
              obj.query.filter_is_sticky = True
-             obj._sticky_filter = False","Ah, yes we need it because cloning is disabled in `_apply_rel_filters()`.",
+             obj._sticky_filter = False","Ah, yes we need it because cloning is disabled in `_apply_rel_filters()`.",none
 django/django,19794,cliffordgama,"@@ -86,6 +86,23 @@ Python-level options, as Django does not need to load objects before deleting
  them. As a consequence, the :attr:`~django.db.models.DB_CASCADE` option does
  not trigger the ``pre_delete`` or ``post_delete`` signals.
@@ -3157,14 +3157,14 @@ django/django,19794,cliffordgama,"@@ -86,6 +86,23 @@ Python-level options, as Dj
 +as the top-level value. :lookup:`Key and index lookups <jsonfield.key>`
 +are unaffected by this deprecation.
 +
-+See :ref:`storing-and-querying-for-none` for usage examples and some caveats.","Go ahead. And thinking again, let's not pull it all the way to the top of the deprecations like ticket-35972, but let's maybe pull it out to a `models` header like you did for `contrib.postgres`.",
-pallets/flask,5457,davidism,,"A few more: f958b6500b2aeb8edc578a07f00546becdad4c80 remove readme install and contribute sections, and 2c7f57ad5bd19743312eb34ea5fb838a1349474e clean docs before build",
++See :ref:`storing-and-querying-for-none` for usage examples and some caveats.","Go ahead. And thinking again, let's not pull it all the way to the top of the deprecations like ticket-35972, but let's maybe pull it out to a `models` header like you did for `contrib.postgres`.",style
+pallets/flask,5457,davidism,,"A few more: f958b6500b2aeb8edc578a07f00546becdad4c80 remove readme install and contribute sections, and 2c7f57ad5bd19743312eb34ea5fb838a1349474e clean docs before build",none
 django/django,20708,Chadys,"@@ -187,7 +187,7 @@
          ""bidi"": False,
          ""code"": ""eu"",
          ""name"": ""Basque"",
 -        ""name_local"": ""Basque"",
-+        ""name_local"": ""Euskara"",",I'm pretty sure it should be `euskara` .,
++        ""name_local"": ""Euskara"",",I'm pretty sure it should be `euskara` .,none
 tiangolo/fastapi,14982,tiangolo,"@@ -0,0 +1,640 @@
 +---
 +name: fastapi
@@ -3518,7 +3518,7 @@ tiangolo/fastapi,14982,tiangolo,"@@ -0,0 +1,640 @@
 +
 +When the using dependencies with `yield`, they can have a `scope` that defines when the exit code is run.","```suggestion
 When using dependencies with `yield`, they can have a `scope` that defines when the exit code is run.
-```",
+```",none
 tiangolo/fastapi,14932,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -3542,7 +3542,7 @@ tiangolo/fastapi,14932,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (6e5680c) during the generation of this report, so bbb96d4 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 django/django,19713,Antoliny0919,"@@ -7015,6 +7015,24 @@ def test_long_header_with_object_tools_layout(self):
          self.assertGreater(len(object_tools), 0)
          self.take_screenshot(""change_list"")
@@ -3562,7 +3562,7 @@ django/django,19713,Antoliny0919,"@@ -7015,6 +7015,24 @@ def test_long_header_wi
         with self.wait_page_loaded():
             save.click()
 ```
-Possibly",
+Possibly",none
 tiangolo/fastapi,15150,dependabot[bot],,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -3586,7 +3586,7 @@ tiangolo/fastapi,15150,dependabot[bot],,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMM
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (1438858) during the generation of this report, so b089500 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 scrapy/scrapy,7355,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7355?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 93.14%. Comparing base ([`54a4c3a`](https://app.codecov.io/gh/scrapy/scrapy/commit/54a4c3af899b8c05c6d2545fa27af664bc231e0c?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`fa7f70e`](https://app.codecov.io/gh/scrapy/scrapy/commit/fa7f70e52de2c03988b1de43b804b98c3644c501?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -3621,7 +3621,7 @@ scrapy/scrapy,7355,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/core/downloader/handlers/http2.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7355?src=pr&el=tree&filepath=scrapy%2Fcore%2Fdownloader%2Fhandlers%2Fhttp2.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvZG93bmxvYWRlci9oYW5kbGVycy9odHRwMi5weQ==) | `100.00% <100.00%> (ø)` | |
 | [scrapy/mail.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7355?src=pr&el=tree&filepath=scrapy%2Fmail.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L21haWwucHk=) | `76.40% <100.00%> (+0.26%)` | :arrow_up: |
 | [scrapy/shell.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7355?src=pr&el=tree&filepath=scrapy%2Fshell.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3NoZWxsLnB5) | `85.41% <100.00%> (+0.10%)` | :arrow_up: |
-</details>",
+</details>",none
 scrapy/scrapy,6993,Ryotaro25,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/6993?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 91.78%. Comparing base ([`2e53d90`](https://app.codecov.io/gh/scrapy/scrapy/commit/2e53d90e4c69a3196e7725e993f97fb7752e8d26?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`28a24f8`](https://app.codecov.io/gh/scrapy/scrapy/commit/28a24f8690204af68535d051f2b478cd618959e0?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -3650,7 +3650,7 @@ scrapy/scrapy,6993,Ryotaro25,,"## [Codecov](https://app.codecov.io/gh/scrapy/scr
 | [Files with missing lines](https://app.codecov.io/gh/scrapy/scrapy/pull/6993?dropdown=coverage&src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) | Coverage Δ | |
 |---|---|---|
 | [scrapy/settings/\_\_init\_\_.py](https://app.codecov.io/gh/scrapy/scrapy/pull/6993?src=pr&el=tree&filepath=scrapy%2Fsettings%2F__init__.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3NldHRpbmdzL19faW5pdF9fLnB5) | `97.33% <100.00%> (+1.07%)` | :arrow_up: |
-</details>",
+</details>",none
 pandas-dev/pandas,61828,eicchen,"@@ -2192,3 +2173,63 @@ def test_mixed_col_index_dtype(string_dtype_no_object):
      expected.columns = expected.columns.astype(string_dtype_no_object)
  
@@ -3709,7 +3709,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -2192,3 +2173,63 @@ def test_mixed_col_index
 +    mask = df.isna().values
 +    mask = mask[:, :-1] & mask[:, [-1]]
 +
-+    df_result = df_base.mul(df_mult, axis=0, fill_value=fill_val)",what about the axis=1 case?,
++    df_result = df_base.mul(df_mult, axis=0, fill_value=fill_val)",what about the axis=1 case?,none
 django/django,19713,Antoliny0919,,"I’ve made a few style adjustments.
 
 ---
@@ -3772,13 +3772,13 @@ It seems necessary to have some vertical padding on the label and legend
 ### After
 
 <img width=""591"" height=""344"" alt=""Screenshot 2025-08-27 at 10 07 33 AM"" src=""https://github.com/user-attachments/assets/3df3112a-738b-46e5-bfd8-5fed42a7016d"" />
-",
+",style
 django/django,20864,kanin-kearpimy,"@@ -511,6 +511,11 @@ class AllFieldsModel(models.Model):
      gr = GenericRelation(DataModel)
  
  
 +class MixedFieldsModel(models.Model):","I also think `MixedFieldsModel` beneath `AllFieldsModel` feels not clear/unspecific for how this is a model with a `JSONField` but with other fields as well
-I wonder how we feel abount adding nullable fields to `JSONModel` instead of creating a new model?",
+I wonder how we feel abount adding nullable fields to `JSONModel` instead of creating a new model?",none
 scrapy/scrapy,7069,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7069?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 91.47%. Comparing base ([`4cb0144`](https://app.codecov.io/gh/scrapy/scrapy/commit/4cb0144b39716b40413a3ea179141a63994ad8b3?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`f22b902`](https://app.codecov.io/gh/scrapy/scrapy/commit/f22b902f28a5d80aa3c948cbdf9bac70eb6d91f8?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -3813,10 +3813,10 @@ scrapy/scrapy,7069,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/utils/defer.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7069?src=pr&el=tree&filepath=scrapy%2Futils%2Fdefer.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL2RlZmVyLnB5) | `86.04% <100.00%> (+0.16%)` | :arrow_up: |
 
 ... and [8 files with indirect coverage changes](https://app.codecov.io/gh/scrapy/scrapy/pull/7069/indirect-changes?src=pr&el=tree-more&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)
-</details>",
+</details>",none
 django/django,19968,jacobtylerwalls,,"I'm good with the new proposed output posted in that comment. Thanks for working on it.
 
-@nessita, any doubts?",
+@nessita, any doubts?",none
 scrapy/scrapy,7254,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7254?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 93.04%. Comparing base ([`6e0a0e4`](https://app.codecov.io/gh/scrapy/scrapy/commit/6e0a0e476a0957524f00ccc04d8d510518933e32?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`552e86b`](https://app.codecov.io/gh/scrapy/scrapy/commit/552e86bdac9d28d22bfe8b73652299a3d3994981?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -3845,14 +3845,14 @@ scrapy/scrapy,7254,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [Files with missing lines](https://app.codecov.io/gh/scrapy/scrapy/pull/7254?dropdown=coverage&src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) | Coverage Δ | |
 |---|---|---|
 | [scrapy/utils/test.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7254?src=pr&el=tree&filepath=scrapy%2Futils%2Ftest.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL3Rlc3QucHk=) | `100.00% <ø> (ø)` | |
-</details>",
+</details>",none
 scrapy/scrapy,7255,pierreeurope,,"> all of which are pre-existing failures 
 
 No.
 
 > This test exists verbatim in upstream master
 
-It's generally expected that changing code may lead to tests starting to fail even if those tests were not changed.",
+It's generally expected that changing code may lead to tests starting to fail even if those tests were not changed.",bug
 scrapy/scrapy,7263,Kaileshwar16,"@@ -24,6 +25,12 @@
  
  class StatsMailer:
@@ -3864,14 +3864,14 @@ scrapy/scrapy,7263,Kaileshwar16,"@@ -24,6 +25,12 @@
 +            stacklevel=2,
 +        )","What about deprecating the entire file instead? Just in case someone is importing something they should not from this file.
 
-(same for `scrapy/mail.py`)",
+(same for `scrapy/mail.py`)",style
 psf/requests,6767,nateprewitt,,"@sigmavirus24 I applied this PR as a patch to my server and it stopped the core dumps i was experiencing. When is this going to be merged and released?
-",
-pandas-dev/pandas,64972,jbrockmendel,,Thanks @jbrockmendel ,
+",none
+pandas-dev/pandas,64972,jbrockmendel,,Thanks @jbrockmendel,none
 django/django,20890,felixxm,"@@ -38,17 +38,22 @@ def test_uuid7_shift(self):
          past = datetime(2005, 11, 16, tzinfo=timezone.utc)
-         shift = past - now","Thanks, version with `total_seconds()` is less fragile.",
-pandas-dev/pandas,64956,jbrockmendel,,Thanks @jbrockmendel ,
+         shift = past - now","Thanks, version with `total_seconds()` is less fragile.",none
+pandas-dev/pandas,64956,jbrockmendel,,Thanks @jbrockmendel,none
 tiangolo/fastapi,15163,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -3895,7 +3895,7 @@ tiangolo/fastapi,15163,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (b707bb8) during the generation of this report, so 6e5e942 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 pandas-dev/pandas,64291,sankerathul,"@@ -694,7 +694,7 @@ def linkcode_resolve(domain, info) -> str | None:
  
      fn = os.path.relpath(fn, start=os.path.dirname(pandas.__file__))
@@ -3905,7 +3905,7 @@ pandas-dev/pandas,64291,sankerathul,"@@ -694,7 +694,7 @@ def linkcode_resolve(do
 
 I think the issue is the docs build is setting `PANDAS_VERSION` to an empty string, which is different than the environment variable not being set. I think if we were to modify this line, it would be `if version == """":`.
 
-However that isn't great either - having version being an empty string is confusing. I think we should just not set the environment variable in the docs build.",
+However that isn't great either - having version being an empty string is confusing. I think we should just not set the environment variable in the docs build.",none
 scrapy/scrapy,7202,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7202?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 91.55%. Comparing base ([`9381ad8`](https://app.codecov.io/gh/scrapy/scrapy/commit/9381ad893dfea0e8dac73fc78cb609b6017bde9a?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`6fbe847`](https://app.codecov.io/gh/scrapy/scrapy/commit/6fbe84729a1e02c34fc4b92681b7513bf6682650?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -3936,13 +3936,13 @@ scrapy/scrapy,7202,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/crawler.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7202?src=pr&el=tree&filepath=scrapy%2Fcrawler.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NyYXdsZXIucHk=) | `92.02% <ø> (+1.23%)` | :arrow_up: |
 
 ... and [1 file with indirect coverage changes](https://app.codecov.io/gh/scrapy/scrapy/pull/7202/indirect-changes?src=pr&el=tree-more&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)
-</details>",
-pandas-dev/pandas,61828,eicchen,,Im closing the PR for now until the additional fixes for EA are deployed,
+</details>",none
+pandas-dev/pandas,61828,eicchen,,Im closing the PR for now until the additional fixes for EA are deployed,none
 pallets/flask,5393,r04922101,,"Ah, this was because in Python 3.12, list comprehensions no longer execute in a separate hidden function scope. So no-arg `super()` became valid, which is what I saw when cleaning up things locally, but still didn't work on older Python versions.
 
 Thanks for adding a test, that's why it wasn't caught last time.
 
-I've reverted the change that caused this, with a further note not to modify it until 3.12 is the minimum supported version.",
+I've reverted the change that caused this, with a further note not to modify it until 3.12 is the minimum supported version.",bug
 django/django,19794,cliffordgama,"@@ -1063,18 +1063,21 @@ This only applies to ``None`` as the top-level value of the field. If ``None``
  is inside a :class:`list` or :class:`dict`, it will always be interpreted
  as JSON ``null``.
@@ -3954,7 +3954,7 @@ django/django,19794,cliffordgama,"@@ -1063,18 +1063,21 @@ This only applies to `
 +
 +.. versionadded:: 6.0","```suggestion
 .. versionchanged:: 6.1
-```",
+```",none
 psf/requests,6757,nateprewitt,"@@ -10,6 +10,14 @@
  import importlib
  import sys
@@ -3965,14 +3965,14 @@ psf/requests,6757,nateprewitt,"@@ -10,6 +10,14 @@
 +from urllib3 import __version__ as urllib3_version
 +
 +# Detect which major version of urllib3 is being used.
-+is_urllib3_2 = urllib3_version.split('.')[0] == 2","I believe this is a string, not an integer. Also, should do a >= check instead of equals.",
-pandas-dev/pandas,61828,eicchen,,should this test be renamed?,
++is_urllib3_2 = urllib3_version.split('.')[0] == 2","I believe this is a string, not an integer. Also, should do a >= check instead of equals.",none
+pandas-dev/pandas,61828,eicchen,,should this test be renamed?,none
 django/django,20946,verigak,,"> I think I would keep the original, because it maps better to situations where ids would indeed be an iterator
 
-Agreed. That seems like a good reason - and may well be the reason it's written the way it is already. Thanks.",
+Agreed. That seems like a good reason - and may well be the reason it's written the way it is already. Thanks.",none
 scrapy/scrapy,6926,wRAR,,"> unfortunately without an explicit release notes entry
 
-Maybe we could address that now?",
+Maybe we could address that now?",none
 django/django,20738,RealOrangeOne,"@@ -113,8 +115,11 @@ Third-party backends
  
  As mentioned at the beginning of this section, Django includes backends
@@ -3989,7 +3989,7 @@ django/django,20738,RealOrangeOne,"@@ -113,8 +115,11 @@ Third-party backends
     Django has a vibrant ecosystem. There are email backends
     highlighted on the `Community Ecosystem`_ page. The Django Packages
     `Email grid`_ has even more options for you!
-```",
+```",none
 pandas-dev/pandas,61828,eicchen,"@@ -8450,13 +8450,23 @@ def _maybe_align_series_as_frame(self, series: Series, axis: AxisInt):
          blockwise.
          """"""
@@ -4000,7 +4000,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -8450,13 +8450,23 @@ def _maybe_align_series
 -                # We can losslessly+cheaply cast to ndarray
 -                rvalues = np.asarray(rvalues)
 +        if isinstance(rvalues, PeriodArray):
-+            return series",why a special case here?,
++            return series",why a special case here?,none
 django/django,20539,artirix1927,"@@ -108,6 +110,95 @@ def create_permissions(
              print(""Adding permission '%s'"" % perm)
  
@@ -4072,24 +4072,24 @@ django/django,20539,artirix1927,"@@ -108,6 +110,95 @@ def create_permissions(
 +                try:
 +                    with transaction.atomic(using=db):
 +                        perm.save(update_fields={""codename"", ""name""}, using=db)
-+                except IntegrityError as exc:","Along these lines, I wonder if another reason to avoid `IntegrityError` is so that we can surface *all* of the conflicts. This is in the post-migrate handler, so if one conflict errors out, the migration is still marked as completed, so after fixing the issue, there's no way to find out about the others that didn't get a chance to run.",
++                except IntegrityError as exc:","Along these lines, I wonder if another reason to avoid `IntegrityError` is so that we can surface *all* of the conflicts. This is in the post-migrate handler, so if one conflict errors out, the migration is still marked as completed, so after fixing the issue, there's no way to find out about the others that didn't get a chance to run.",bug
 django/django,19968,jacobtylerwalls,"@@ -1,10 +1,10 @@
 -from django.db.models.sql.compiler import (
 +from django.db.models.sql.compiler import (  # isort:skip
      SQLAggregateCompiler,
      SQLCompiler,
      SQLDeleteCompiler,
-+    SQLUpdateCompiler,","No problem, I prefer that also. 👍 ",
++    SQLUpdateCompiler,","No problem, I prefer that also. 👍 ",none
 tiangolo/fastapi,14964,tiangolo,,"> With this deprecation, what's the recommended approach for exception handlers that return plain dict bodies?
 
 You can copy the implementation of `ORJSONResponse` and use it instead of importing from `fastapi`.
 Or, you can return `Response(content=ujson.dumps(content, ensure_ascii=False).encode(""utf-8""))`.
-Don't forget to add `ujson` explicit dependency to your project",
+Don't forget to add `ujson` explicit dependency to your project",complexity
 psf/requests,6667,agubelu,,"Thank you so much!
 
 This made a big improvement for my use case, which is load generation (https://github.com/locustio/locust), so lots of concurrent request.Sessions. Especially on Windows, where Python 3.12 was completely broken for for my users...
 
-Any chance 2.32 will be upon us soon? If not, a pre-release version would also be very helpful.",
+Any chance 2.32 will be upon us soon? If not, a pre-release version would also be very helpful.",complexity
 scrapy/scrapy,7276,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7276?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 93.12%. Comparing base ([`584d99a`](https://app.codecov.io/gh/scrapy/scrapy/commit/584d99af30b8b0ac35e0b913401e04d5bed2881f?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`7b9b38a`](https://app.codecov.io/gh/scrapy/scrapy/commit/7b9b38aa54d36262aa5dacf32206f86f3298ef39?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -4119,7 +4119,7 @@ scrapy/scrapy,7276,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 |---|---|---|
 | [scrapy/commands/\_\_init\_\_.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7276?src=pr&el=tree&filepath=scrapy%2Fcommands%2F__init__.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvbW1hbmRzL19faW5pdF9fLnB5) | `80.00% <100.00%> (+2.72%)` | :arrow_up: |
 | [scrapy/core/scraper.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7276?src=pr&el=tree&filepath=scrapy%2Fcore%2Fscraper.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvc2NyYXBlci5weQ==) | `95.55% <100.00%> (ø)` | |
-</details>",
+</details>",none
 django/django,20785,nessita,"@@ -171,16 +171,33 @@ spelling:
  
  black:
@@ -4144,10 +4144,10 @@ django/django,20785,nessita,"@@ -171,16 +171,33 @@ spelling:
  
 -check: spelling black lint
 -	@echo
--	@echo ""Style and spelling checks completed.""","Chatted offline, I agree this is useful to leave in for the local dev use case.",
+-	@echo ""Style and spelling checks completed.""","Chatted offline, I agree this is useful to leave in for the local dev use case.",none
 pandas-dev/pandas,64542,natmokval,,"> wording in the whatsnew, needs rebase, otherwise +1
 
-thanks for the comment, I updated the note in whatsnew and merged main.",
+thanks for the comment, I updated the note in whatsnew and merged main.",none
 pandas-dev/pandas,64942,jorisvandenbossche,,"Owee, I'm MrMeeseeks, Look at me.
 
 There seem to be a conflict, please backport manually. Here are approximate instructions:
@@ -4187,7 +4187,7 @@ Congratulations — you did some good work! Hopefully your backport PR will be t
 Remember to remove the `Still Needs Manual Backport` label once the PR gets merged.
 
 If these instructions are inaccurate, feel free to [suggest an improvement](https://github.com/MeeseeksBox/MeeseeksDev).
-                ",
+                ",bug
 django/django,20470,aadeina,"@@ -34,6 +36,37 @@ __ `executing custom SQL directly`_
      Please read more about :ref:`SQL injection protection
      <sql-injection-protection>`.
@@ -4208,7 +4208,7 @@ django/django,20470,aadeina,"@@ -34,6 +36,37 @@ __ `executing custom SQL directl
 +:class:`~django.db.models.expressions.RawSQL` provides more flexibility for","I missed that @adamchainz suggested this in the last PR, perhaps because he spotted that there was a mention of `Func` later in this document. Next time, if you know that's why you're proposing a change, let me know! :-)
 
 With this now in mind, I see the value of mentioning `Func` here as he suggested, but in that case, I would also simply remove the ""[Adding annotations](https://docs.djangoproject.com/en/6.0/topics/db/sql/#adding-annotations)"" example that shows the non-Func way of using `.raw()`, which I don't think we want to recommend.
-",
+",none
 pandas-dev/pandas,61828,eicchen,"@@ -2199,3 +2180,26 @@ def test_mixed_col_index_dtype(using_infer_string):
              dtype = ""string""
          expected.columns = expected.columns.astype(dtype)
@@ -4216,9 +4216,9 @@ pandas-dev/pandas,61828,eicchen,"@@ -2199,3 +2180,26 @@ def test_mixed_col_index
 +
 +
 +@pytest.mark.parametrize(""op"", [""add"", ""sub"", ""mul"", ""div"", ""mod"", ""truediv"", ""pow""])
-+def test_df_series_fill_value(op):","ill need to take a closer look at this, just because im really skeptical that the fix is this easy.",
-scrapy/scrapy,7059,galbwe,,"Thanks! I don't have any specific suggestions, I think this is fine as is. Can you please check the `extra-deps` failures with HTTP/2?",
-scrapy/scrapy,6952,wRAR,,With `pytest-asyncio` `inlineCallbacks` will additionally wrap the function into `deferred_to_future()` and `deferred_f_from_coro_f` will be a no-op. Because of the behavior changes the names should be changed into something more generic too.,
++def test_df_series_fill_value(op):","ill need to take a closer look at this, just because im really skeptical that the fix is this easy.",none
+scrapy/scrapy,7059,galbwe,,"Thanks! I don't have any specific suggestions, I think this is fine as is. Can you please check the `extra-deps` failures with HTTP/2?",security
+scrapy/scrapy,6952,wRAR,,With `pytest-asyncio` `inlineCallbacks` will additionally wrap the function into `deferred_to_future()` and `deferred_f_from_coro_f` will be a no-op. Because of the behavior changes the names should be changed into something more generic too.,none
 django/django,20282,LilyFirefly,"@@ -37,13 +37,27 @@ def as_oracle(self, compiler, connection, **extra_context):
  
  class UUID7(Func):
@@ -4251,8 +4251,8 @@ index c41f58d11b..7059798ff3 100644
  
      def as_sql(self, compiler, connection, **extra_context):
          if not connection.features.supports_uuid7_function:
-```",
-django/django,19713,Antoliny0919,,Please add it to the accessibility improvement project board 🙏,
+```",none
+django/django,19713,Antoliny0919,,Please add it to the accessibility improvement project board 🙏,none
 django/django,20938,VIZZARD-X,"@@ -173,6 +173,73 @@ Roughly translated, these votes mean:
  Although these votes are informal, they'll be taken very seriously. After a
  suitable voting period, if an obvious consensus arises we'll follow the votes.
@@ -4322,23 +4322,23 @@ django/django,20938,VIZZARD-X,"@@ -173,6 +173,73 @@ Roughly translated, these vo
 +If you discover a bug, please report it to the `Django issue tracker","```suggestion
 If you discover a bug, please report it via the `Django issue tracker
 ```
-I think 'via', 'on', or 'with' would work better than ""to"" (which makes the tracker sound like a person"")",
+I think 'via', 'on', or 'with' would work better than ""to"" (which makes the tracker sound like a person"")",none
 pandas-dev/pandas,64993,jbrockmendel,"@@ -347,6 +347,9 @@ def test_numeric_arr_rdiv_tdscalar(self, three_days, numeric_idx, box_with_array
          ],
          ids=repr,
      )
 +    @pytest.mark.filterwarnings(
-+        ""ignore:Using 'generic' unit for NumPy timedelta:DeprecationWarning""",we don't know exactly what numpy's future exception message is going to be,
-scrapy/scrapy,7255,pierreeurope,,"You were right, the changes were suppressing the exception logging. Fixed it by wrapping the coroutine instead of inspecting the task in the done callback. All tests pass now including test_project_asyncio_spider_settings_select and test_asyncio_enabled_reactor_different_loop.",
++        ""ignore:Using 'generic' unit for NumPy timedelta:DeprecationWarning""",we don't know exactly what numpy's future exception message is going to be,none
+scrapy/scrapy,7255,pierreeurope,,"You were right, the changes were suppressing the exception logging. Fixed it by wrapping the coroutine instead of inspecting the task in the done callback. All tests pass now including test_project_asyncio_spider_settings_select and test_asyncio_enabled_reactor_different_loop.",bug
 scrapy/scrapy,7263,Kaileshwar16,"@@ -134,6 +134,28 @@ engine_stopped
  
      This signal supports :ref:`asynchronous handlers <signal-deferred>`.
  
 +memusage_reached","I don't like these names (any one of them would be fine but when both exists they don't look like the difference between them is that one means just a warning while other corresponds to a spider being stopped).
 
-Additionally, a signal for `MEMUSAGE_LIMIT_MB` may not be needed as users can handle `spider_closed` and check the reason in the handler.",
-pandas-dev/pandas,64880,An1k4et,,you've got a merge conflict,
-pandas-dev/pandas,64789,jbrockmendel,,Thanks @jbrockmendel ,
+Additionally, a signal for `MEMUSAGE_LIMIT_MB` may not be needed as users can handle `spider_closed` and check the reason in the handler.",none
+pandas-dev/pandas,64880,An1k4et,,you've got a merge conflict,none
+pandas-dev/pandas,64789,jbrockmendel,,Thanks @jbrockmendel,none
 django/django,20828,blighj,"@@ -375,7 +398,10 @@ def path_level(name):
                          if matches_patterns(path, (extension,)):
                              for pattern, template in patterns:
@@ -4347,7 +4347,7 @@ django/django,20828,blighj,"@@ -375,7 +398,10 @@ def path_level(name):
 +                                    name,
 +                                    hashed_files,
 +                                    template,
-+                                    self.get_comment_blocks(content),","Other than Mariusz's suggestions and a test for js files, this is the only new thing in the PR. I found that without recalculating the comment blocks on each loop, the positions would get out of date and later urls in blocks later in the file could get missed.",
++                                    self.get_comment_blocks(content),","Other than Mariusz's suggestions and a test for js files, this is the only new thing in the PR. I found that without recalculating the comment blocks on each loop, the positions would get out of date and later urls in blocks later in the file could get missed.",bug
 django/django,20964,varunkasyap,"@@ -370,6 +371,21 @@ def test_drop_nonexistent_extension(self):
          self.assertEqual(len(captured_queries), 1)
          self.assertIn(""SELECT"", captured_queries[0][""sql""])
@@ -4359,21 +4359,21 @@ django/django,20964,varunkasyap,"@@ -370,6 +371,21 @@ def test_drop_nonexistent_
 +        with connection.schema_editor(atomic=False) as editor:
 +            with mock.patch.object(editor.connection, ""vendor"", ""sqlite""):","> I’m unsure which release version of the docs to target
 
-Docs are only required for regression fixes in minor releases and for new features in major releases",
+Docs are only required for regression fixes in minor releases and for new features in major releases",none
 pallets/flask,5812,davidism,,"after `uv pip install 'git+https://github.com/pallets/flask@merge-contexts'` on [indico `master`](https://github.com/indico/indico):
 
 - no errors at import time
 - no errors when running the repl w/ all the indico stuff imported (`indico shell`)
 - no errors accessing it via web (custom wrapper running the flask dev server)
-- all tests still passing",
+- all tests still passing",none
 scrapy/scrapy,7283,jhamze7,"@@ -14,6 +14,9 @@ New features
      that returns headers as a list of ``(key, value)`` tuples.
      (:issue:`7239`)
  
 +-   Added a :setting:`DOWNLOAD_BIND_ADDRESS` setting to set the default local
 +    bind address for outgoing download-handler connections.
-+",We don't normally add news entries in PRs.,
-pallets/flask,5659,CoolCat467,,"I don't think this is correct either, since Flask views can't return async iterables.",
++",We don't normally add news entries in PRs.,none
+pallets/flask,5659,CoolCat467,,"I don't think this is correct either, since Flask views can't return async iterables.",bug
 django/django,19713,Antoliny0919,"@@ -195,22 +159,8 @@ form .aligned table p {
      width: 610px;
  }
@@ -4388,8 +4388,8 @@ I found that when the wide class was added, the label widths increased slightly.
 (It seems that there wasn't much difference even in the previous versions.)
 
 Now that labels are positioned above the fields, these CSS rules can be safely removed, and the wide class no longer seems to serve any purpose.
-(For reference, in the image above, the text field overlaps the label because I temporarily removed some CSS to check the layout with the wide class applied.)",
-scrapy/scrapy,6975,radarhere,,I don't believe a constant exists until Pillow 9.3.0.,
+(For reference, in the image above, the text field overlaps the label because I temporarily removed some CSS to check the layout with the wide class applied.)",none
+scrapy/scrapy,6975,radarhere,,I don't believe a constant exists until Pillow 9.3.0.,none
 django/django,20960,anjaniacatus,"@@ -76,3 +76,20 @@ def test_multiplechoicefield_changed(self):
      def test_disabled_has_changed(self):
          f = MultipleChoiceField(choices=[(""1"", ""One""), (""2"", ""Two"")], disabled=True)
@@ -4407,8 +4407,8 @@ django/django,20960,anjaniacatus,"@@ -76,3 +76,20 @@ def test_multiplechoicefiel
 +        )
 +        self.assertIsNone(f.validate([""4"", ""4"", ""5"", ""5""]))
 +
-+    def test_validate_duplicated_invalid_value(self):","Hello! thank you for the remark, Yes, you're right.  It  should be more than one . Already fixed",
-psf/requests,6973,dependabot[bot],,I don't think so but we can rebase and merge it,
++    def test_validate_duplicated_invalid_value(self):","Hello! thank you for the remark, Yes, you're right.  It  should be more than one . Already fixed",bug
+psf/requests,6973,dependabot[bot],,I don't think so but we can rebase and merge it,none
 psf/requests,6767,nateprewitt,"@@ -99,19 +85,9 @@ def _urllib3_request_context(
      scheme = parsed_request_url.scheme.lower()
      port = parsed_request_url.port
@@ -4427,8 +4427,8 @@ psf/requests,6767,nateprewitt,"@@ -99,19 +85,9 @@ def _urllib3_request_context(
 -    elif verify is True and should_use_default_ssl_context:
 -        pool_kwargs[""ssl_context""] = _preloaded_ssl_context
      elif isinstance(verify, str):
-         if not os.path.isdir(verify):",This is one piece I left in place from #6667. We were unilaterally considering any `verify` string to be `ca_certs` instead of detecting if it was a directory. That seems like a miss from #6655 unless I'm missing something?,
-pandas-dev/pandas,61828,eicchen,,"Just making sure, do you agree with splitting the 1D part off?",
+         if not os.path.isdir(verify):",This is one piece I left in place from #6667. We were unilaterally considering any `verify` string to be `ca_certs` instead of detecting if it was a directory. That seems like a miss from #6655 unless I'm missing something?,bug
+pandas-dev/pandas,61828,eicchen,,"Just making sure, do you agree with splitting the 1D part off?",none
 pandas-dev/pandas,64916,jbrockmendel,"@@ -157,3 +159,72 @@ def test_get_indexer_non_unique_np_nats(self, np_nat_fixture, np_nat_fixture2):
              expected_indexer = np.array([1, 3], dtype=np.intp)
              tm.assert_numpy_array_equal(indexer, expected_indexer)
@@ -4440,7 +4440,7 @@ pandas-dev/pandas,64916,jbrockmendel,"@@ -157,3 +159,72 @@ def test_get_indexer_
 +    # should respect the invariant x == y => hash(x) == hash(y)
 +
 +    _xfail_np_hash = pytest.mark.xfail(
-+        not np_version_gt2_2 or WASM,",nit: Is this failure WASM specific too? Since WASM only installs numpy 2.0.2 I suspect `np_version_gt2_2` also covers this,
++        not np_version_gt2_2 or WASM,",nit: Is this failure WASM specific too? Since WASM only installs numpy 2.0.2 I suspect `np_version_gt2_2` also covers this,none
 django/django,20308,VIZZARD-X,"@@ -74,10 +74,14 @@ def m2m_value(value):
  
                  def queryset_iterator(obj, field):
@@ -4453,7 +4453,7 @@ django/django,20308,VIZZARD-X,"@@ -74,10 +74,14 @@ def m2m_value(value):
                          2000 if getattr(attr, ""prefetch_cache_name"", None) else None
                      )
 -                    return attr.iterator(chunk_size)
-+                    return qs.iterator(chunk_size=chunk_size)",Can you avoid these unnecessary refactors?,
++                    return qs.iterator(chunk_size=chunk_size)",Can you avoid these unnecessary refactors?,none
 django/django,20470,aadeina,"@@ -213,8 +250,9 @@ of people with their ages calculated by the database:
      Jane is 42.
      ...
@@ -4462,8 +4462,8 @@ django/django,20470,aadeina,"@@ -213,8 +250,9 @@ of people with their ages calcu
 -:ref:`Func() expression <func-expressions>`.
 +You can often avoid using raw SQL to compute annotations by using either
 +:ref:`Func() expressions <func-expressions>` or
-+:class:`~django.db.models.expressions.RawSQL` (see :ref:`raw-sql-fragments`).",Revert. You can avoid using raw SQL by using `RawSQL`?,
-pallets/flask,5736,kadai0308,,"Sorry for didn't aware the contriubing rule, just close the PR.",
++:class:`~django.db.models.expressions.RawSQL` (see :ref:`raw-sql-fragments`).",Revert. You can avoid using raw SQL by using `RawSQL`?,none
+pallets/flask,5736,kadai0308,,"Sorry for didn't aware the contriubing rule, just close the PR.",none
 django/django,19794,cliffordgama,"@@ -1235,3 +1251,112 @@ def test_literal_annotation_filtering(self):
              data__foo=""bar""
          )
@@ -4477,7 +4477,7 @@ django/django,19794,cliffordgama,"@@ -1235,3 +1251,112 @@ def test_literal_annot
 +    def test_save_load(self):
 +        obj = NullableJSONModel(value=JSONNull())
 +        obj.save()
-+        obj.refresh_from_db()","Spotted this pattern elsewhere and realized why it's here, it's testing the ""load"" of the save/load cycle. So we could have left it in.",
++        obj.refresh_from_db()","Spotted this pattern elsewhere and realized why it's here, it's testing the ""load"" of the save/load cycle. So we could have left it in.",none
 pandas-dev/pandas,61828,eicchen,"@@ -268,16 +280,50 @@ def test_add_strings(dtype):
  def test_add_frame(dtype):
      arr = pd.array([""a"", ""b"", np.nan, np.nan], dtype=dtype)
@@ -4498,7 +4498,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -268,16 +280,50 @@ def test_add_strings(dtyp
 +    if isinstance(dtype, ""str[python]""):
 +        # This ONE dtype actually succeeds the test
 +        # We are manually failing it to maintain continuity
-+        pytest.fail(""Manually failed"")","That's good to know, thank you!",
++        pytest.fail(""Manually failed"")","That's good to know, thank you!",none
 scrapy/scrapy,7079,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7079?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 91.13%. Comparing base ([`a02abdc`](https://app.codecov.io/gh/scrapy/scrapy/commit/a02abdcf6370d5f05e4488a7355eaad86638a5bd?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`7d8371a`](https://app.codecov.io/gh/scrapy/scrapy/commit/7d8371a61ff19e202461b534595b1e9cd6f64c27?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -4529,21 +4529,21 @@ scrapy/scrapy,7079,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/core/downloader/handlers/http.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7079?src=pr&el=tree&filepath=scrapy%2Fcore%2Fdownloader%2Fhandlers%2Fhttp.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvZG93bmxvYWRlci9oYW5kbGVycy9odHRwLnB5) | `100.00% <100.00%> (ø)` | |
 | [scrapy/core/downloader/handlers/s3.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7079?src=pr&el=tree&filepath=scrapy%2Fcore%2Fdownloader%2Fhandlers%2Fs3.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvZG93bmxvYWRlci9oYW5kbGVycy9zMy5weQ==) | `94.11% <100.00%> (ø)` | |
 | [scrapy/settings/default\_settings.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7079?src=pr&el=tree&filepath=scrapy%2Fsettings%2Fdefault_settings.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3NldHRpbmdzL2RlZmF1bHRfc2V0dGluZ3MucHk=) | `100.00% <ø> (ø)` | |
-</details>",
+</details>",none
 django/django,20884,jacobtylerwalls,"@@ -260,14 +261,12 @@ msgid ""%(count)s %(name)s was changed successfully.""
  msgid_plural ""%(count)s %(name)s were changed successfully.""
  msgstr[0] ""%(count)s %(name)s foi modificado com sucesso.""
  msgstr[1] ""%(count)s %(name)s foram modificados com sucesso.""
 -msgstr[2] ""%(count)s %(name)s foram modificados com sucesso.""","> If this was a manual remove, I would just leave these as they were, to avoid a repeated need to remove on each translation fetch.
 
-I wondered about this as well. I think I'd prefer updating the manage_translations.py to automate such removals. wdyt?",
+I wondered about this as well. I think I'd prefer updating the manage_translations.py to automate such removals. wdyt?",none
 django/django,20864,kanin-kearpimy,"@@ -60,3 +60,8 @@ class FloatModel(models.Model):
  class UUIDModel(models.Model):
      uuid = models.UUIDField(null=True)
      shift = models.DurationField(null=True)
 +
 +
-+class CoalesceJSONTestModel(models.Model):","We're going to do our best to reuse models for future tests, so I'd use a more generic name like ""JSONModel"" (like the others).",
++class CoalesceJSONTestModel(models.Model):","We're going to do our best to reuse models for future tests, so I'd use a more generic name like ""JSONModel"" (like the others).",style
 django/django,19794,cliffordgama,,"Oh one more idea: I know this PR focuses on `Exact`, but since we're providing `JSONNull`, we might as well test it with `In`:
 
 ```diff
@@ -4566,7 +4566,7 @@ index deeb71fe14..39a7e90820 100644
      def test_case_expression(self):
          with self.subTest(""JSONNull() in When.then""):
              obj = NullableJSONModel.objects.create(value={""key"": ""value""})
-```",
+```",none
 pandas-dev/pandas,61828,eicchen,"@@ -2299,35 +2308,31 @@ def test_mixed_col_index_dtype(string_dtype_no_object):
      tm.assert_frame_equal(result, expected)
  
@@ -4610,7 +4610,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -2299,35 +2308,31 @@ def test_mixed_col_inde
 -    expected = DataFrame(
 -        [[safe_null * safe_null, fill_val, fill_val * 2], [3.0, fill_val, 5.0]]
 -    ).astype(dtype)
-+        request.applymarker(pytest.mark.xfail(reason=""NumPy int cannot represent NaN""))",what is it accomplishing?,
++        request.applymarker(pytest.mark.xfail(reason=""NumPy int cannot represent NaN""))",what is it accomplishing?,none
 django/django,20938,VIZZARD-X,"@@ -0,0 +1,51 @@
 +==========================================
 +How to test pre-release versions of Django
@@ -4629,7 +4629,7 @@ django/django,20938,VIZZARD-X,"@@ -0,0 +1,51 @@
 +:doc:`/howto/upgrade-version` guide for instructions on getting your codebase
 +up to date. [cite: 36]","Not quite... The actual integration was done by hand, even though I relied on an LLM to help me draft the prose and get the syntax correct. I found the proper Sphinx :doc: cross-referencing for the upgrade guide, wired the new file into index.txt, and ran the local make html and sphinxlint checks to make sure it actually built correctly without warnings. I also looked into the docs/howto/structure to see how things were organised.
 
-The LLM served as syntax assistant because I'm still getting used to Django's documentation structure, but I am solely responsible for the patch. Thank you for reviewing this; if there is anything in the actual content or phrasing that you would like me to change, please let me know.",
+The LLM served as syntax assistant because I'm still getting used to Django's documentation structure, but I am solely responsible for the patch. Thank you for reviewing this; if there is anything in the actual content or phrasing that you would like me to change, please let me know.",none
 tiangolo/fastapi,14982,tiangolo,"@@ -0,0 +1,640 @@
 +---
 +name: fastapi
@@ -4919,7 +4919,7 @@ tiangolo/fastapi,14982,tiangolo,"@@ -0,0 +1,640 @@
 +
 +Do not use `ORJSONResponse` or `UJSONResponse`, they are deprecated.
 +
-+Instead declare a return type or response model. Pydantic will handle the data serialization in the Rust side.","(or just ""in Rust"" ?)",
++Instead declare a return type or response model. Pydantic will handle the data serialization in the Rust side.","(or just ""in Rust"" ?)",none
 django/django,20539,artirix1927,,"#### Uncovered lines in changed files
 
 ```
@@ -4933,9 +4933,9 @@ Coverage: 98%
 -------------
 
 ```
-**Note:** Missing lines are warnings only. Some database-specific lines may not be measured. [More information](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests)",
-pallets/flask,5737,strugee,,"That's good to know, rST links are a lot more complicated than I already thought they were. Ultimately, we're moving to myst-parser and Markdown, so this problem will go away.",
-pandas-dev/pandas,65021,jbrockmendel,,Thanks @jbrockmendel ,
+**Note:** Missing lines are warnings only. Some database-specific lines may not be measured. [More information](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#code-coverage-on-pull-requests)",none
+pallets/flask,5737,strugee,,"That's good to know, rST links are a lot more complicated than I already thought they were. Ultimately, we're moving to myst-parser and Markdown, so this problem will go away.",complexity
+pandas-dev/pandas,65021,jbrockmendel,,Thanks @jbrockmendel,none
 pandas-dev/pandas,65024,jbrockmendel,"@@ -2356,10 +2358,29 @@ def _get_values_repr(self) -> str:
              na_rep=""NaN"",
              quoting=QUOTE_NONNUMERIC,
@@ -4965,7 +4965,7 @@ pandas-dev/pandas,65024,jbrockmendel,"@@ -2356,10 +2358,29 @@ def _get_values_re
 +            result += val
 +            cur_col_len += len(val)
 +            start = False
-+        result += ""]""","Might it be more performance to `"""".join` all the strings at the end compared to continually building up a string with `+=`",
++        result += ""]""","Might it be more performance to `"""".join` all the strings at the end compared to continually building up a string with `+=`",style
 django/django,20587,charettes,"@@ -420,10 +420,6 @@ class BaseDatabaseFeatures:
      # Does the Round() database function round to even?
      rounds_to_even = False
@@ -4975,7 +4975,7 @@ django/django,20587,charettes,"@@ -420,10 +420,6 @@ class BaseDatabaseFeatures:
 -    prohibits_dollar_signs_in_column_aliases = False","We can add a short note:
 ```
 * The ``DatabaseFeatures.prohibits_dollar_signs_in_column_aliases`` feature flag is removed.
-```",
+```",style
 scrapy/scrapy,7300,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7300?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :x: Patch coverage is `85.18519%` with `8 lines` in your changes missing coverage. Please review.
 :white_check_mark: Project coverage is 93.18%. Comparing base ([`7010985`](https://app.codecov.io/gh/scrapy/scrapy/commit/7010985e4f37150834bd25f5c7820b40df3399b4?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`55353ca`](https://app.codecov.io/gh/scrapy/scrapy/commit/55353ca23e6ea51a62b98e33d78a4f9665eab396?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -5022,7 +5022,7 @@ scrapy/scrapy,7300,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/core/http2/protocol.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7300?src=pr&el=tree&filepath=scrapy%2Fcore%2Fhttp2%2Fprotocol.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvaHR0cDIvcHJvdG9jb2wucHk=) | `84.15% <100.00%> (ø)` | |
 | [scrapy/core/spidermw.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7300?src=pr&el=tree&filepath=scrapy%2Fcore%2Fspidermw.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvc3BpZGVybXcucHk=) | `96.40% <100.00%> (ø)` | |
 | ... and [21 more](https://app.codecov.io/gh/scrapy/scrapy/pull/7300?src=pr&el=tree-more&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) | |
-</details>",
+</details>",none
 scrapy/scrapy,7039,Laerte,"@@ -103,56 +95,6 @@ def test_maxdelay_definition(value, expected):
      assert at.maxdelay == expected
  
@@ -5057,7 +5057,7 @@ scrapy/scrapy,7039,Laerte,"@@ -103,56 +95,6 @@ def test_maxdelay_definition(valu
 -        ),
 -    ],
 -)
--def test_startdelay_definition(min_spider, min_setting, start_setting, expected):",Is this test useless/duplicate without `min_spider`?,
+-def test_startdelay_definition(min_spider, min_setting, start_setting, expected):",Is this test useless/duplicate without `min_spider`?,none
 django/django,20587,charettes,,"@jacobtylerwalls 
 
 > to flesh out my thought, based on your hint I was anticipating that a user would need to change
@@ -5076,9 +5076,9 @@ So I can't think of common cases where `RawSQL` would need to be adjusted in the
 
 There are cases like a `FilteredRelation` annotation (which now has its `JOIN` name quoted) but these need to be referenced by a `filter` or `annotate` to be actually used (otherwise the join is not materialized) so I feel like the intersection of mixed case is very small.
 
-As for the poor man implicit parent `JOIN` logic in `RawSQL.as_sql` I wouldn't worry too much about it as it can already be broken in multiple ways (e.g. imagine a parent field with a very generic name like `rent` colliding with the `current_timestamp` function usage in `RawSQL`) and the `annotate.annotate` example you provided is not realistic as a `SELECT` member cannot reference a previous alias by name unless I'm missing something.",
-pandas-dev/pandas,65030,jbrockmendel,,Thanks @jbrockmendel ,
-pandas-dev/pandas,65027,jbrockmendel,,Thanks @jbrockmendel ,
+As for the poor man implicit parent `JOIN` logic in `RawSQL.as_sql` I wouldn't worry too much about it as it can already be broken in multiple ways (e.g. imagine a parent field with a very generic name like `rent` colliding with the `current_timestamp` function usage in `RawSQL`) and the `annotate.annotate` example you provided is not realistic as a `SELECT` member cannot reference a previous alias by name unless I'm missing something.",none
+pandas-dev/pandas,65030,jbrockmendel,,Thanks @jbrockmendel,none
+pandas-dev/pandas,65027,jbrockmendel,,Thanks @jbrockmendel,none
 scrapy/scrapy,7164,wRAR,"@@ -175,16 +175,19 @@ Use a fallback component:
      class MyHandler:
          lazy = False
@@ -5101,10 +5101,10 @@ scrapy/scrapy,7164,wRAR,"@@ -175,16 +175,19 @@ Use a fallback component:
 +        async def close():","The `close()` method is missing the `self` parameter. It should be `async def close(self):`
 ```suggestion
         async def close(self):
-```",
-pallets/flask,5499,Josecespedesant,,"Hello, thank you for your response, I went ahead and applied changes without taking a look at the contribution guide, I just went through it and will make the process correctly, my apologies.",
-django/django,19794,cliffordgama,,"Thinking again, let's add the `test_filter_in` and just skip it with a new flag like `supports_json_field_in` to match `supports_json_field_contains`.",
-pallets/flask,5459,dependabot[bot],,@dependabot unignore *,
+```",bug
+pallets/flask,5499,Josecespedesant,,"Hello, thank you for your response, I went ahead and applied changes without taking a look at the contribution guide, I just went through it and will make the process correctly, my apologies.",none
+django/django,19794,cliffordgama,,"Thinking again, let's add the `test_filter_in` and just skip it with a new flag like `supports_json_field_in` to match `supports_json_field_contains`.",none
+pallets/flask,5459,dependabot[bot],,@dependabot unignore *,none
 scrapy/scrapy,5260,Git-Jiro,"@@ -84,3 +86,91 @@ running :class:`~scrapy.Spider` class.
  If you wish to log the requests that couldn't be serialized, you can set the
  :setting:`SCHEDULER_DEBUG` setting to ``True`` in the project's settings page.
@@ -5115,7 +5115,7 @@ scrapy/scrapy,5260,Git-Jiro,"@@ -84,3 +86,91 @@ running :class:`~scrapy.Spider` 
 +Job directory details
 +=====================
 +
-+(using the DownloaderAwarePriorityQueue)::","You should be able to find the relevant parts searching for `JOBDIR` in the code, and following from there.",
++(using the DownloaderAwarePriorityQueue)::","You should be able to find the relevant parts searching for `JOBDIR` in the code, and following from there.",none
 scrapy/scrapy,7164,wRAR,"@@ -112,43 +102,23 @@ def download_request(self, request: Request, spider: Spider) -> Deferred[Respons
          creator = ClientCreator(
              reactor, FTPClient, user, password, passive=passive_mode
@@ -5151,7 +5151,7 @@ scrapy/scrapy,7164,wRAR,"@@ -112,43 +102,23 @@ def download_request(self, reques
 ```suggestion
             if match := _CODE_RE.search(message):
                 ftpcode = match.group()
-```",
+```",style
 tiangolo/fastapi,15170,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -->
 ## Merging this PR will **not alter performance**
 
@@ -5175,7 +5175,7 @@ tiangolo/fastapi,15170,tiangolo,,"<!-- __CODSPEED_PERFORMANCE_REPORT_COMMENT__ -
 </a>
 
 [^unexpected-base]: No successful run was found on <code>master</code> (9d6ee88) during the generation of this report, so d90c385 was used instead as the comparison base. There might be some changes unrelated to this pull request in this report.
-",
+",none
 scrapy/scrapy,7182,wRAR,"@@ -79,6 +79,21 @@ Backward-incompatible changes
      :class:`~twisted.internet.defer.Deferred` object. This
      change only impacts code that calls this method directly.
@@ -5196,7 +5196,7 @@ scrapy/scrapy,7182,wRAR,"@@ -79,6 +79,21 @@ Backward-incompatible changes
 +    (:issue:`2183`, :issue:`6369`, PR TBD)","The PR reference is marked as 'TBD'. This should be updated with the actual PR number before merging.
 ```suggestion
     (:issue:`2183`, :issue:`6369`)
-```",
+```",none
 django/django,20300,charettes,"@@ -1699,13 +1699,13 @@ def field_as_sql(self, field, get_placeholder, val):
          if field is None:
              # A field value of None means the value is raw.
@@ -5204,7 +5204,7 @@ django/django,20300,charettes,"@@ -1699,13 +1699,13 @@ def field_as_sql(self, fi
 +        elif get_placeholder_sql is not None:
 +            # Some fields (e.g. geo fields) need special munging before
 +            # they can be inserted.
-+            sql, params = get_placeholder_sql(val, self, self.connection)",`get_placeholder_sql` is expected to perform compilation from now on. This made me want to adapt this function so it's passed a `compile_sql` hybrid between `get_placeholder_sql` if it exists or `self.compile(val)` otherwise but that seemed to invasive.,
++            sql, params = get_placeholder_sql(val, self, self.connection)",`get_placeholder_sql` is expected to perform compilation from now on. This made me want to adapt this function so it's passed a `compile_sql` hybrid between `get_placeholder_sql` if it exists or `self.compile(val)` otherwise but that seemed to invasive.,bug
 tiangolo/fastapi,15152,tiangolo,"@@ -0,0 +1,120 @@
 +# События, отправляемые сервером (SSE) { #server-sent-events-sse }
 +
@@ -5269,11 +5269,11 @@ tiangolo/fastapi,15152,tiangolo,"@@ -0,0 +1,120 @@
 +
 +Так как в этом случае функция не async, правильным типом возврата будет `Iterable[Item]`:","```suggestion
 Так как в этом случае функция не асинхронная, правильным типом возврата будет `Iterable[Item]`:
-```",
+```",none
 scrapy/scrapy,7145,Icorebleidd,,"After removing the assertion, OldStyleClass is no longer referenced anywhere.
-I can remove the class definition as well unless you prefer to keep it for clarity.",
-pandas-dev/pandas,65019,jbrockmendel,,Thanks @jbrockmendel ,
-psf/requests,6897,cjwatson,,The pypy-3.9 Windows failure seems unrelated to this change.,
+I can remove the class definition as well unless you prefer to keep it for clarity.",none
+pandas-dev/pandas,65019,jbrockmendel,,Thanks @jbrockmendel,none
+psf/requests,6897,cjwatson,,The pypy-3.9 Windows failure seems unrelated to this change.,none
 django/django,20852,blighj,"@@ -276,12 +286,28 @@ def converter(matchobj):
  
              # Determine the hashed name of the target file with the storage
@@ -5298,12 +5298,12 @@ django/django,20852,blighj,"@@ -276,12 +286,28 @@ def converter(matchobj):
 +                    ""The storage resolved the url to {missing} ""
 +                    ""and could not find that file.""
 +                )
-+                raise CommandError(","I think only the command should re-raise a `CommandError`, not here. But we should definitely enrich the ValueError with whatever information we need. You can do that with [add_note()](https://docs.python.org/3/tutorial/errors.html#enriching-exceptions-with-notes).",
++                raise CommandError(","I think only the command should re-raise a `CommandError`, not here. But we should definitely enrich the ValueError with whatever information we need. You can do that with [add_note()](https://docs.python.org/3/tutorial/errors.html#enriching-exceptions-with-notes).",bug
 django/django,21043,jacobtylerwalls,"@@ -170,6 +170,16 @@ be reported using the `public ticket tracker`_ for hardening.
  
  .. _public ticket tracker: https://code.djangoproject.com/
  
-+``REMOTE_USER`` headers must be set or stripped at the network boundary",Personally I think that's much better. I definitely agree with explicitly mentioning `RemoteUserMiddleware`.,
++``REMOTE_USER`` headers must be set or stripped at the network boundary",Personally I think that's much better. I definitely agree with explicitly mentioning `RemoteUserMiddleware`.,none
 scrapy/scrapy,6993,Ryotaro25,"@@ -319,10 +320,25 @@ def getwithbase(self, name: _SettingsKey) -> BaseSettings:
          """"""
          if not isinstance(name, str):
@@ -5341,13 +5341,13 @@ scrapy/scrapy,6993,Ryotaro25,"@@ -319,10 +320,25 @@ def getwithbase(self, name: 
                     UserWarning,
                 )
             override[normalized_key] = v
-```",
+```",security
 django/django,20308,VIZZARD-X,"@@ -74,10 +74,13 @@ def m2m_value(value):
  
                  def queryset_iterator(obj, field):
                      attr = getattr(obj, field.name)
-+                    qs = attr.all()","As mentioned [before](https://github.com/django/django/pull/20308#discussion_r2673970745), I still think this change is unnecessary. Chaining `.all()` before `order_by()` might help readability, but it's debatable and bloats the diff.",
-tiangolo/fastapi,14962,tiangolo,,Same but for parsing HTTP body: #13951,
++                    qs = attr.all()","As mentioned [before](https://github.com/django/django/pull/20308#discussion_r2673970745), I still think this change is unnecessary. Chaining `.all()` before `order_by()` might help readability, but it's debatable and bloats the diff.",none
+tiangolo/fastapi,14962,tiangolo,,Same but for parsing HTTP body: #13951,none
 django/django,20029,Pierre-Sassoulas,,"Thanks for circling back here.
 
 Benchmark looks a little better if you pull the construction of the generator out of the timeit call so that you only have `lambda: consume(case1)` etc:
@@ -5365,7 +5365,7 @@ Short-circuit path (8 pages, page 4)                  0.027s      0.027s      1.
 Each scenario ran 500,000 iterations.
 ```
 
-Given that, I think we can pull this in 👍 ",
+Given that, I think we can pull this in 👍 ",none
 django/django,20840,jacobtylerwalls,"@@ -68,3 +68,37 @@ jobs:
            fi
  
@@ -5397,8 +5397,8 @@ django/django,20840,jacobtylerwalls,"@@ -68,3 +68,37 @@ jobs:
               echo ""❌ Commit $SHA must end with a period.""
               echo ""Use `git commit --amend` to edit the commit, or perform an interactive rebase with `git rebase -i $SHA~1`.""
 ```
-",
-django/django,21050,timgraham,,Sorry I missed this in review! Is it helpful to you if I backport this?,
+",none
+django/django,21050,timgraham,,Sorry I missed this in review! Is it helpful to you if I backport this?,none
 django/django,20964,varunkasyap,"@@ -370,6 +371,21 @@ def test_drop_nonexistent_extension(self):
          self.assertEqual(len(captured_queries), 1)
          self.assertIn(""SELECT"", captured_queries[0][""sql""])
@@ -5408,26 +5408,26 @@ django/django,20964,varunkasyap,"@@ -370,6 +371,21 @@ def test_drop_nonexistent_
 +        project_state = ProjectState()
 +        new_state = project_state.clone()
 +        with connection.schema_editor(atomic=False) as editor:
-+            with mock.patch.object(editor.connection, ""vendor"", ""sqlite""):",@varunkasyap let's just remove the test 👍 ,
-pandas-dev/pandas,64148,gautamvarmadatla,,hello @jbrockmendel made the changes :) ,
++            with mock.patch.object(editor.connection, ""vendor"", ""sqlite""):",@varunkasyap let's just remove the test 👍,none
+pandas-dev/pandas,64148,gautamvarmadatla,,hello @jbrockmendel made the changes :),none
 scrapy/scrapy,7039,Laerte,,"I propose merging the not controversial subset of this, keeping the following for the round 3 or separate refactoring:
 
 - all changes related to `handle_httpstatus_list` and `REDIRECT_ALLOWED_HTTP_CODES`
 - the new `download_delay` warning and the test removal for that attr
 
-",
+",none
 django/django,20960,anjaniacatus,,"> @anjaniacatus Thank you for the contribution 👍
 > 
 > This looks good to me overall. That said, both AI disclosure checkboxes are currently checked, but the template asks you to select only one. According to [Django’s AI-assisted contribution guidelines](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/submitting-patches/#ai-assisted-contributions), if no AI tools were used, please uncheck the second box. If AI tools were used, please uncheck the first box and add a short note to the PR description explaining which tool was used, what it was used for, and that the output was reviewed manually.
 
-Thank you  for the quick review ! I've edited the description.",
-tiangolo/fastapi,14681,casperdcl,,This pull request has a merge conflict that needs to be resolved.,
+Thank you  for the quick review ! I've edited the description.",none
+tiangolo/fastapi,14681,casperdcl,,This pull request has a merge conflict that needs to be resolved.,bug
 django/django,19713,Antoliny0919,"@@ -68,7 +68,7 @@
              }
  
              // Check if warning is already there.
 -            if (inp.parentNode.querySelectorAll('.' + warningClass).length) {
-+            if (inp.parentNode.parentNode.querySelectorAll('.' + warningClass).length) {",No JS tests fail when I revert this.,
++            if (inp.parentNode.parentNode.querySelectorAll('.' + warningClass).length) {",No JS tests fail when I revert this.,none
 django/django,20904,AhmedNassar7,"@@ -165,8 +165,11 @@ value is permanent and should be baked into the project state (``True``),
  or if it is temporary and just for this migration (``False``) - usually
  because the migration is adding a non-nullable field to a table and needs
@@ -5438,8 +5438,8 @@ django/django,20904,AhmedNassar7,"@@ -165,8 +165,11 @@ value is permanent and sh
 +:attr:`~django.db.models.Field.db_default`, Django never sets permanent
 +database defaults and always applies them in the Django ORM code. When
 +:attr:`~django.db.models.Field.db_default` is set, Django sets the default
-+at the database level.","Yes, for the formatting and grammar of words. Is there a problem using LLMs? ",
-pandas-dev/pandas,65046,jbrockmendel,,Thanks @jbrockmendel ,
++at the database level.","Yes, for the formatting and grammar of words. Is there a problem using LLMs? ",none
+pandas-dev/pandas,65046,jbrockmendel,,Thanks @jbrockmendel,none
 scrapy/scrapy,7353,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/7353?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :x: Patch coverage is `97.95918%` with `1 line` in your changes missing coverage. Please review.
 :white_check_mark: Project coverage is 93.16%. Comparing base ([`03d105a`](https://app.codecov.io/gh/scrapy/scrapy/commit/03d105ac924e0f21ab1fa5daa46dda9544ac111d?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`6857a0f`](https://app.codecov.io/gh/scrapy/scrapy/commit/6857a0fe285426d9740cef71c6d56b059c35d78d?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -5478,22 +5478,22 @@ scrapy/scrapy,7353,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [scrapy/pipelines/media.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7353?src=pr&el=tree&filepath=scrapy%2Fpipelines%2Fmedia.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3BpcGVsaW5lcy9tZWRpYS5weQ==) | `96.52% <100.00%> (-0.03%)` | :arrow_down: |
 | [scrapy/utils/\_deps\_compat.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7353?src=pr&el=tree&filepath=scrapy%2Futils%2F_deps_compat.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL19kZXBzX2NvbXBhdC5weQ==) | `100.00% <100.00%> (ø)` | |
 | [scrapy/core/downloader/tls.py](https://app.codecov.io/gh/scrapy/scrapy/pull/7353?src=pr&el=tree&filepath=scrapy%2Fcore%2Fdownloader%2Ftls.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L2NvcmUvZG93bmxvYWRlci90bHMucHk=) | `93.33% <95.00%> (-3.89%)` | :arrow_down: |
-</details>",
+</details>",none
 pandas-dev/pandas,65046,jbrockmendel,"@@ -356,25 +357,40 @@ def nancorr(const float64_t[:, :] mat, bint cov=False, minp=None):
  
      result = np.empty((K, K), dtype=np.float64)
      mask = np.isfinite(mat).view(np.uint8)
-+    no_nans = np.asarray(mask).all()",How significant is the performance improvement checking this outside the loop?,
++    no_nans = np.asarray(mask).all()",How significant is the performance improvement checking this outside the loop?,none
 pandas-dev/pandas,64542,natmokval,"@@ -98,6 +98,7 @@ Deprecations
  - Deprecated arithmetic operations between pandas objects (:class:`DataFrame`, :class:`Series`, :class:`Index`, and pandas-implemented :class:`ExtensionArray` subclasses) and list-likes other than ``list``, ``np.ndarray``, :class:`ExtensionArray`, :class:`Index`, :class:`Series`, :class:`DataFrame`. For e.g. ``tuple`` or ``range``, explicitly cast these to a supported object instead. In a future version, these will be treated as scalar-like for pointwise operation (:issue:`62423`)
  - Deprecated automatic dtype promotion when reindexing with a ``fill_value`` that cannot be held by the original dtype. Explicitly cast to a common dtype instead (:issue:`53910`)
  - Deprecated the ``.name`` property of offset objects (e.g., :class:`~pandas.tseries.offsets.Day`, :class:`~pandas.tseries.offsets.Hour`). Use ``.rule_code`` instead (:issue:`64207`)
-+- Deprecated the default value of ``exact`` in :func:`assert_index_equal` in favor of ``True`` instead of ``equiv`` (:issue:`57436`)","- Deprecated the default value of ``exact`` in :func:`assert_index_equal`; in a future version this will default to ``True`` instead of ``""equiv""`` (:issue:`57436`)",
++- Deprecated the default value of ``exact`` in :func:`assert_index_equal` in favor of ``True`` instead of ``equiv`` (:issue:`57436`)","- Deprecated the default value of ``exact`` in :func:`assert_index_equal`; in a future version this will default to ``True`` instead of ``""equiv""`` (:issue:`57436`)",none
 django/django,21043,jacobtylerwalls,"@@ -170,6 +170,16 @@ be reported using the `public ticket tracker`_ for hardening.
  
  .. _public ticket tracker: https://code.djangoproject.com/
  
-+``REMOTE_USER`` headers must be set or stripped at the network boundary","Good point, this was a concession to the LLMs over-indexing on this. In the update I just pushed, is it okay to make a single mention of `RemoteUserMiddleware` if I couch it in a more generic discussion? (I'm trying to fight back against the models.)",
++``REMOTE_USER`` headers must be set or stripped at the network boundary","Good point, this was a concession to the LLMs over-indexing on this. In the update I just pushed, is it okay to make a single mention of `RemoteUserMiddleware` if I couch it in a more generic discussion? (I'm trying to fight back against the models.)",none
 django/django,20938,VIZZARD-X,"@@ -173,6 +173,74 @@ Roughly translated, these votes mean:
  Although these votes are informal, they'll be taken very seriously. After a
  suitable voting period, if an obvious consensus arises we'll follow the votes.
@@ -5561,25 +5561,25 @@ django/django,20938,VIZZARD-X,"@@ -173,6 +173,74 @@ Roughly translated, these vo
 ""Be sure to correctly set the django version field when creating the ticket.""
 
 
-",
-psf/requests,6774,branchv,,This patch will likely now go out prior to the next minor version release which is when we've announced a move to pyproject.toml. I would anticipate a release with this update to be in the coming weeks depending on availability.,
+",none
+psf/requests,6774,branchv,,This patch will likely now go out prior to the next minor version release which is when we've announced a move to pyproject.toml. I would anticipate a release with this update to be in the coming weeks depending on availability.,none
 django/django,19713,Antoliny0919,"@@ -1,4 +1,4 @@
  <p class=""datetime"">","I agree that a div probably makes more sense and we may not want the `<br>` either
-But this can come later",
+But this can come later",style
 django/django,20310,VIZZARD-X,,"Another reason to minimize the footprint of the changes is that the default behavior is also described just below:
 
 >  If no routers return a suggestion, the base router tries
 the current :attr:`instance._state.db
 <django.db.models.Model._state>` of the hint instance.
 
-However, I think we can still merge this change, since we're clarifying (briefly!) how to use a hint effectively at the end of the discussion of what hints are for.",
+However, I think we can still merge this change, since we're clarifying (briefly!) how to use a hint effectively at the end of the discussion of what hints are for.",none
 django/django,20308,VIZZARD-X,,"Thanks for the review, I've updated the PR to address the feedback:
 
 - I removed the inline model modifications and instead added dedicated test models (``UnorderedCategory``, ``ArticleWithM2M``) to ``tests/serializers/models/natural.py``. This ensures the regression test is isolated and doesn't affect the schema of existing test models.
 
 - Updated the test docstring to follow the standard style (removed the ""Ensure"" preamble).
 
-Ready for a look when you have a moment 👍",
+Ready for a look when you have a moment 👍",none
 scrapy/scrapy,7134,Cycloctane,"@@ -46,62 +13,64 @@ def _brotli_decompress(decompressor, data):
  
  
@@ -5673,8 +5673,8 @@ scrapy/scrapy,7134,Cycloctane,"@@ -46,62 +13,64 @@ def _brotli_decompress(decomp
 +        if not output_chunk:
 +            raise ValueError(""Truncated brotli compressed data"")","Previous `_unbrotli()` implementation is actually checking this by `while output_chunk:`
 
-https://github.com/scrapy/scrapy/blob/426aafddca8182dba12da819046272a8fad41e72/scrapy/utils/_compression.py#L92-L94",
-django/django,20884,jacobtylerwalls,,"Thanks for the review! If this looks right, I'll squash all but the last commit for the sneaked plural form from 11 months ago into a single commit.",
+https://github.com/scrapy/scrapy/blob/426aafddca8182dba12da819046272a8fad41e72/scrapy/utils/_compression.py#L92-L94",none
+django/django,20884,jacobtylerwalls,,"Thanks for the review! If this looks right, I'll squash all but the last commit for the sneaked plural form from 11 months ago into a single commit.",none
 django/django,19713,Antoliny0919,"@@ -109,16 +113,7 @@ fieldset .inline-heading,
  .aligned legend,
  .aligned label {
@@ -5689,8 +5689,8 @@ django/django,19713,Antoliny0919,"@@ -109,16 +113,7 @@ fieldset .inline-heading,
 -    content: '';
 -    display: inline-block;
 -    vertical-align: middle;
-+    padding: 0.5rem 0;","From what I checked, I don't think it's needed for regular fields, but it seems necessary for fieldsets.",
-psf/requests,6774,branchv,,"@nateprewitt @sigmavirus24 I don't know if this /needs/ a release, users installing from wheels should be unaffected. Mostly seems like it's affecting folks installing from git.",
++    padding: 0.5rem 0;","From what I checked, I don't think it's needed for regular fields, but it seems necessary for fieldsets.",none
+psf/requests,6774,branchv,,"@nateprewitt @sigmavirus24 I don't know if this /needs/ a release, users installing from wheels should be unaffected. Mostly seems like it's affecting folks installing from git.",none
 pandas-dev/pandas,61828,eicchen,"@@ -865,7 +865,9 @@ def _op_method_error_message(self, other, op) -> str:
      def _evaluate_op_method(self, other, op, arrow_funcs) -> Self:
          pa_type = self._pa_array.type
@@ -5700,7 +5700,7 @@ pandas-dev/pandas,61828,eicchen,"@@ -865,7 +865,9 @@ def _op_method_error_messag
 +        # pyarrow gets upset if you try to join a NullArray
 +        other = other_NA.cast(pa_type)","i havent looked too closely, but the CI failiures ll look like cases of ""the test needs to be updated to check for the new exception message"".
 
-none of the edits to the ArrowEA are necessary, nor is the special-casing for Period.",
+none of the edits to the ArrowEA are necessary, nor is the special-casing for Period.",bug
 scrapy/scrapy,6952,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/pull/6952?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) Report
 :white_check_mark: All modified and coverable lines are covered by tests.
 :white_check_mark: Project coverage is 91.68%. Comparing base ([`54d8562`](https://app.codecov.io/gh/scrapy/scrapy/commit/54d8562fb0f20b5378646deb6f284c10ea4b030e?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)) to head ([`507416f`](https://app.codecov.io/gh/scrapy/scrapy/commit/507416f791f7b8732d5016eab8399506b53939d3?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy)).
@@ -5729,7 +5729,7 @@ scrapy/scrapy,6952,wRAR,,"## [Codecov](https://app.codecov.io/gh/scrapy/scrapy/p
 | [Files with missing lines](https://app.codecov.io/gh/scrapy/scrapy/pull/6952?dropdown=coverage&src=pr&el=tree&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy) | Coverage Δ | |
 |---|---|---|
 | [scrapy/utils/test.py](https://app.codecov.io/gh/scrapy/scrapy/pull/6952?src=pr&el=tree&filepath=scrapy%2Futils%2Ftest.py&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=scrapy#diff-c2NyYXB5L3V0aWxzL3Rlc3QucHk=) | `60.63% <100.00%> (+3.49%)` | :arrow_up: |
-</details>",
+</details>",none
 scrapy/scrapy,7386,albertedwardson,"@@ -17,9 +17,8 @@ async def download_request(self, request: Request) -> Response:
          uri = parse_data_uri(request.url)
          respcls = responsetypes.from_mimetype(uri.media_type)
@@ -5741,4 +5741,4 @@ scrapy/scrapy,7386,albertedwardson,"@@ -17,9 +17,8 @@ async def download_request
 +            return respcls(url=request.url, body=uri.data, encoding=charset)
  ","my main reason for removing `resp_kwargs` was that it gets created even when it isn’t used, particularly when the response isn’t a `TextResponse`, so it felt like unnecessary object creation. it also requires dict unpacking even when it’s empty, and in the only branch where it is used, it’s populated with just a single keyword argument. also, since this is currently just a single parameter, the risk of parameters getting out of sync feels negligible to me, so passing encoding explicitly in that branch felt simpler and a bit clearer
 
-for that reason, I’d lean toward keeping this approach :) ",
+for that reason, I’d lean toward keeping this approach :) ",none
