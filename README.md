@@ -224,17 +224,6 @@ Profiles are stored per GitHub username in a local SQLite database.
 
 ---
 
-## Roadmap
-
-- [ ] Week 1 — Data collection and labelling
-- [ ] Week 2 — AST parser and feature engineering
-- [ ] Week 3 — Model training and SHAP explainability
-- [ ] Week 4 — Flask API and GitHub webhook integration
-- [ ] Week 5 — Celery async queue, personalisation, deployment
-- [ ] Week 6 — Polish, documentation, demo GIF
-
----
-
 ## What I learned building this
 
 > Section to be filled after Week 6 — key technical decisions, what didn't work, what surprised me, and what I'd do differently.
