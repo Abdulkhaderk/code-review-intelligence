@@ -14,13 +14,6 @@ When a developer opens a Pull Request on GitHub, this system:
 4. Generates a SHAP-based explanation for every flag raised
 5. Posts inline review comments directly on the PR within 60 seconds
 6. Builds a personalised reviewer profile per developer over time
-
----
-
-## Demo
-
-> GIF coming after Week 5 deployment — will show end-to-end PR review in real time
-
 ---
 
 ## Why this is different from existing tools
