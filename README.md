@@ -73,7 +73,7 @@ Inline PR Comments posted
 
 ---
 
-## Tech stack
+## Tech stack used :
 
 **Machine Learning**
 - `transformers` — CodeBERT fine-tuned on real GitHub PR review data
