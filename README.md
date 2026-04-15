@@ -217,9 +217,8 @@ Profiles are stored per GitHub username in a local SQLite database.
 
 ---
 
-## What I learned building this
+## What I learned building this:
 
-> Section to be filled after Week 6 — key technical decisions, what didn't work, what surprised me, and what I'd do differently.
 
 ---
 
