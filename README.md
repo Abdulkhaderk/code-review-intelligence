@@ -16,7 +16,7 @@ When a developer opens a Pull Request on GitHub, this system:
 6. Builds a personalised reviewer profile per developer over time
 ---
 
-## Why this is different from existing tools
+## Why this is different from existing tools ?
 
 | Feature | SonarQube | DeepSource | This project |
 |---|---|---|---|
