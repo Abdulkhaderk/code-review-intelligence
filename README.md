@@ -31,7 +31,7 @@ The key differentiator: **personalised reviewer profile**. After reviewing 10+ P
 
 ---
 
-## Architecture
+## Architecture :
 
 ```
 GitHub PR opened
