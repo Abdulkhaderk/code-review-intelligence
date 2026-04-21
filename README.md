@@ -4,7 +4,7 @@
 
 ---
 
-## What it does
+## What it does ?
 
 When a developer opens a Pull Request on GitHub, this system:
 
@@ -14,16 +14,9 @@ When a developer opens a Pull Request on GitHub, this system:
 4. Generates a SHAP-based explanation for every flag raised
 5. Posts inline review comments directly on the PR within 60 seconds
 6. Builds a personalised reviewer profile per developer over time
-
 ---
 
-## Demo
-
-> GIF coming after Week 5 deployment — will show end-to-end PR review in real time
-
----
-
-## Why this is different from existing tools
+## Why this is different from existing tools ?
 
 | Feature | SonarQube | DeepSource | This project |
 |---|---|---|---|
@@ -38,7 +31,7 @@ The key differentiator: **personalised reviewer profile**. After reviewing 10+ P
 
 ---
 
-## Architecture
+## Architecture :
 
 ```
 GitHub PR opened
@@ -80,7 +73,7 @@ Inline PR Comments posted
 
 ---
 
-## Tech stack
+## Tech stack used :
 
 **Machine Learning**
 - `transformers` — CodeBERT fine-tuned on real GitHub PR review data
@@ -121,7 +114,7 @@ code-review-intelligence/
 
 ---
 
-## How to run locally
+## How to run locally :
 
 **Step 1 — Clone the repo**
 ```bash
@@ -224,20 +217,8 @@ Profiles are stored per GitHub username in a local SQLite database.
 
 ---
 
-## Roadmap
+## What I learned building this:
 
-- [ ] Week 1 — Data collection and labelling
-- [ ] Week 2 — AST parser and feature engineering
-- [ ] Week 3 — Model training and SHAP explainability
-- [ ] Week 4 — Flask API and GitHub webhook integration
-- [ ] Week 5 — Celery async queue, personalisation, deployment
-- [ ] Week 6 — Polish, documentation, demo GIF
-
----
-
-## What I learned building this
-
-> Section to be filled after Week 6 — key technical decisions, what didn't work, what surprised me, and what I'd do differently.
 
 ---
 
