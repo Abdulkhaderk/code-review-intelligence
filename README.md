@@ -4,7 +4,7 @@
 
 ---
 
-## What it does ?
+## What it does :
 
 When a developer opens a Pull Request on GitHub, this system:
 
